@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Mart</title>
+    <script>
+        // Redirect to menu if already logged in, otherwise to login page
+        if (localStorage.getItem("miniMartLoggedIn") === "true") {
+            window.location.replace("pages/menu.html");
+        } else {
+            window.location.replace("pages/login.html");
+        }
+    </script>
+</head>
+<body style="font-family: system-ui, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #e0f2fe;">
+    <div style="text-align: center;">
+        <h1 style="color: #0284c7;">🛒 Mini Mart</h1>
+        <p>Loading your supermarket adventure...</p>
+        <p><a href="pages/login.html" style="color: #0369a1; text-decoration: underline;">Click here if you are not redirected automatically.</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,433 @@
+/* Sets the page background, font and overall layout. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    font-family: Arial, sans-serif;
+
+    background-image: url("../images/GameMenu-Background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* Positions the main page content. */
+
+.difficulty-container {
+    width: 100%;
+    max-width: 1000px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: auto;
+}
+
+
+/* Styles the translucent lavender card. */
+
+.difficulty-card {
+    width: 100%;
+    max-width: 1000px;
+
+    padding: 40px 35px;
+
+    text-align: center;
+
+    /* Gives this panel the same translucent background as the menu panel. */
+    background: rgba(125, 124, 133, 0.2);
+
+    /* Blurs the page content visible behind the panel. */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    /* Adds a subtle white outline around the panel. */
+    border: 1px solid rgba(255, 255, 255, 0.45);
+
+    border-radius: 25px;
+
+    /* Adds a shadow around the panel to separate it from the background. */
+    box-shadow: 0 15px 40px rgba(25, 20, 70, 0.25);
+}
+
+
+/* Styles the main title using the selected display font. */
+
+.difficulty-card h1 {
+    font-family: "Skranji", system-ui;
+
+    font-size: clamp(42px, 7vw, 75px);
+
+    font-weight: 700;
+
+    color: #393A72;
+
+    margin-bottom: 15px;
+
+    text-shadow: 1px 2px 5px rgba(255, 255, 255, 0.45);
+}
+
+
+/* Styles section headings using the selected font. */
+
+.difficulty-card h2 {
+    font-family: "Ultra", serif;
+
+    font-size: clamp(20px, 4vw, 29px);
+
+    font-weight: 400;
+
+    color: #FFFFFF;
+
+    margin-bottom: 15px;
+
+    text-shadow: 1px 2px 5px rgba(30, 25, 65, 0.65);
+}
+
+
+/* Styles the descriptive text. */
+
+.description {
+    font-family: Arial, sans-serif;
+
+    max-width: 650px;
+
+    margin: 0 auto 35px;
+
+    color: #FFFFFF;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    text-shadow: 1px 2px 4px rgba(30, 25, 65, 0.6);
+}
+
+
+/* Arranges the available difficulty choices. */
+
+.difficulty-options {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+
+/* Sets the shared appearance of difficulty buttons. */
+
+.difficulty-button {
+    flex: 1 1 200px;
+
+    max-width: 280px;
+    min-height: 205px;
+
+    padding: 22px 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    border: 3px solid transparent;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* Changes button appearance on hover. */
+
+.difficulty-button:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 10px 22px rgba(35, 25, 80, 0.18);
+}
+
+.difficulty-button:active {
+    transform: translateY(-2px);
+}
+
+
+/* Styles the Easy difficulty option. */
+
+.easy {
+    background: #D9F8DF;
+
+    border-color: #69BD7B;
+
+    color: #216B35;
+}
+
+.easy:hover {
+    background: #C5F0CE;
+}
+
+
+/* Styles the Medium difficulty option. */
+
+.medium {
+    background: #FFF0BD;
+
+    border-color: #EDC34D;
+
+    color: #795B00;
+}
+
+.medium:hover {
+    background: #FFE69A;
+}
+
+
+/* Styles the Difficult difficulty option. */
+
+.difficult {
+    background: #FFDCE2;
+
+    border-color: #EF8294;
+
+    color: #A32943;
+}
+
+.difficult:hover {
+    background: #FFC8D2;
+}
+
+
+/* Positions and styles the difficulty icons. */
+
+.level-icon {
+    font-size: 38px;
+
+    line-height: 1.2;
+}
+
+
+/* Styles the difficulty names. */
+
+.level-name {
+    font-family: "Ultra", serif;
+
+    font-size: 21px;
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+}
+
+
+/* Styles the descriptions for each difficulty. */
+
+.level-description {
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* Styles the time and lives information. */
+
+.level-detail {
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    line-height: 1.6;
+}
+
+
+/* Styles the button that returns to the menu. */
+
+.back-button {
+    margin-top: 30px;
+
+    padding: 13px 26px;
+
+    background: #405D78;
+
+    color: #FFFFFF;
+
+    border: 1px solid rgba(255, 255, 255, 0.55);
+
+    border-radius: 12px;
+
+    font-family: "Ultra", serif;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(35, 25, 80, 0.12);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Changes the back button appearance on hover. */
+
+.back-button:hover {
+    background:  #243B53;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 7px 15px rgba(35, 25, 80, 0.25);
+}
+
+
+/* Styles the footer text. */
+
+.footer-text {
+    margin-top: 25px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    color: #FFFFFF;
+
+    font-weight: 600;
+
+    text-shadow: 1px 2px 4px rgba(30, 25, 65, 0.6);
+}
+
+
+/* Adds visible keyboard focus styling. */
+
+.difficulty-button:focus-visible,
+.back-button:focus-visible {
+    outline: 3px solid #FFFFFF;
+
+    outline-offset: 4px;
+}
+
+
+/* Adjusts the page layout for tablet screens. */
+
+@media (max-width: 800px) {
+
+    .difficulty-card {
+        padding: 35px 25px;
+    }
+
+    .difficulty-options {
+        gap: 15px;
+    }
+
+    .difficulty-button {
+        flex: 1 1 180px;
+
+        max-width: 300px;
+    }
+
+}
+
+
+/* Adjusts the page layout for mobile screens. */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 12px;
+
+        background-attachment: scroll;
+    }
+
+    .difficulty-card {
+        padding: 28px 18px;
+
+        border-radius: 20px;
+    }
+
+    .difficulty-card h1 {
+        font-size: 42px;
+    }
+
+    .difficulty-card h2 {
+        font-size: 21px;
+
+        line-height: 1.5;
+    }
+
+    .description {
+        font-size: 14px;
+
+        margin-bottom: 25px;
+    }
+
+    .difficulty-options {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 15px;
+    }
+
+    .difficulty-button {
+        width: 100%;
+
+        max-width: 350px;
+
+        min-height: 175px;
+    }
+
+    .level-icon {
+        font-size: 32px;
+    }
+
+    .level-name {
+        font-size: 19px;
+    }
+
+    .back-button {
+        width: 100%;
+
+        max-width: 280px;
+    }
+
+    .footer-text {
+        font-size: 12px;
+
+        line-height: 1.6;
+    }
+
+}

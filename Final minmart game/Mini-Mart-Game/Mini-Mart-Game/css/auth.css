@@ -1,0 +1,413 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #36454F;
+}
+
+
+/* Styles the login and registration pages. */
+
+.auth-page {
+    position: relative;
+    isolation: isolate;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+
+    overflow: hidden;
+}
+
+
+/* Displays the background image with a blur effect. */
+
+.auth-page::before {
+    content: "";
+
+    position: absolute;
+    inset: -10px;
+
+    background-image: url("../images/GameMenu-Background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: blur(7px);
+
+    z-index: -1;
+}
+
+
+/* Positions the authentication content on the page. */
+
+.auth-container {
+    position: relative;
+
+    width: 100%;
+    max-width: 1000px;
+    height: 600px;
+
+    overflow: hidden;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.20);
+}
+
+
+/* Controls the image shown on desktop screens. */
+
+.auth-background-image {
+    position: absolute;
+
+    width: 550px;
+    height: auto;
+
+    top: 20px;
+    left: 40px;
+
+    display: block;
+
+    z-index: 1;
+}
+
+
+/* Styles the login or registration form panel. */
+
+.auth-box {
+    position: absolute;
+
+    z-index: 10;
+
+    top: 50%;
+    right: 45px;
+
+    transform: translateY(-50%);
+
+    width: 350px;
+
+    padding: 35px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Styles the main page title. */
+
+.auth-box h1 {
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 32px;
+    font-weight: bold;
+
+    color: #03045A;
+}
+
+
+/* Styles the supporting heading text. */
+
+.auth-box h2 {
+    margin-top: 8px;
+    margin-bottom: 25px;
+
+    text-align: center;
+
+    font-size: 22px;
+
+    color: #333333;
+}
+
+
+/* Styles the form field labels. */
+
+.auth-box label {
+    display: block;
+
+    margin-top: 15px;
+    margin-bottom: 7px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    color: #444444;
+}
+
+
+/* Styles the text and password fields. */
+
+.auth-box input {
+    width: 100%;
+    height: 45px;
+
+    padding: 0 13px;
+
+    border: 2px solid #eeeeee;
+    border-radius: 10px;
+
+    background: #fafafa;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+
+/* Highlights a field while it is selected. */
+
+.auth-box input:focus {
+    border-color: #4c85b6;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(70, 130, 180, 0.15);
+}
+
+
+/* Styles the form buttons. */
+
+.auth-box button {
+    width: 100%;
+    min-height: 48px;
+
+    margin-top: 24px;
+
+    padding: 12px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #03045A,
+        #2b547e
+    );
+
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/* Changes button appearance when the pointer is over it. */
+
+.auth-box button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(59, 66, 132, 0.3);
+}
+
+
+/* Changes button appearance while it is pressed. */
+
+.auth-box button:active {
+    transform: translateY(0);
+}
+
+
+/* Styles explanatory text below the form. */
+
+.auth-box p {
+    margin-top: 20px;
+
+    text-align: center;
+
+    font-size: 14px;
+    line-height: 1.5;
+
+    color: #666666;
+}
+
+
+/* Styles links between the login and registration pages. */
+
+.auth-box a {
+    color: #4682B4;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+
+.auth-box a:hover {
+    text-decoration: underline;
+}
+
+
+/* Adjusts the authentication layout for tablet screens. */
+
+@media (max-width: 900px) {
+
+    .auth-page {
+        padding: 25px;
+    }
+
+    .auth-container {
+        max-width: 750px;
+        height: 550px;
+    }
+
+    .auth-background-image {
+        width: 430px;
+
+        top: 20px;
+        left: 25px;
+    }
+
+    .auth-box {
+        right: 25px;
+        width: 320px;
+        padding: 28px;
+    }
+}
+
+
+/* Adjusts the authentication layout for mobile screens. */
+
+@media (max-width: 650px) {
+
+    .auth-page {
+        padding: 15px;
+    }
+
+    .auth-container {
+        width: 100%;
+        max-width: 450px;
+
+        height: auto;
+        min-height: 680px;
+
+        border-radius: 20px;
+    }
+
+
+    /* Controls the image on mobile screens. */
+
+    .auth-background-image {
+        position: relative;
+
+        display: block;
+
+        width: 180px;
+        max-width: 70%;
+        height: auto;
+
+        top: auto;
+        left: auto;
+
+        margin: 20px auto 0;
+
+        z-index: 1;
+    }
+
+
+    /* Adjusts the form panel on mobile screens. */
+
+    .auth-box {
+        position: relative;
+
+        top: auto;
+        left: auto;
+        right: auto;
+
+        transform: none;
+
+        width: calc(100% - 30px);
+        max-width: 350px;
+
+        margin: 20px auto 25px;
+
+        padding: 25px;
+
+        z-index: 10;
+    }
+
+
+    /* Adjusts the title size on mobile screens. */
+
+    .auth-box h1 {
+        font-size: 28px;
+    }
+
+    .auth-box h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+
+    /* Adjusts form fields on mobile screens. */
+
+    .auth-box input {
+        height: 44px;
+    }
+
+
+    /* Adjusts buttons on mobile screens. */
+
+    .auth-box button {
+        min-height: 46px;
+    }
+}
+
+
+/* Adjusts the layout for narrow mobile screens. */
+
+@media (max-width: 380px) {
+
+    .auth-page {
+        padding: 10px;
+    }
+
+    .auth-container {
+        min-height: 620px;
+        border-radius: 16px;
+    }
+
+    .auth-background-image {
+        width: 145px;
+    }
+
+    .auth-box {
+        width: calc(100% - 24px);
+        padding: 20px;
+    }
+
+    .auth-box h1 {
+        font-size: 25px;
+    }
+
+    .auth-box h2 {
+        font-size: 18px;
+    }
+}

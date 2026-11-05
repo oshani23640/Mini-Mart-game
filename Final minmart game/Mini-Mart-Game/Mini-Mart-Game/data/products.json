@@ -1,0 +1,74 @@
+[
+  {
+    "id": "cake",
+    "name": "Cake",
+    "icon": "🍰",
+    "shelfX": 165,
+    "shelfY": 175,
+    "price": 12,
+    "category": "Bakery"
+  },
+  {
+    "id": "bread",
+    "name": "Bread",
+    "icon": "🍞",
+    "shelfX": 350,
+    "shelfY": 175,
+    "price": 5,
+    "category": "Bakery"
+  },
+  {
+    "id": "milk",
+    "name": "Milk",
+    "icon": "🥛",
+    "shelfX": 535,
+    "shelfY": 175,
+    "price": 4,
+    "category": "Dairy"
+  },
+  {
+    "id": "juice",
+    "name": "Juice",
+    "icon": "🧃",
+    "shelfX": 720,
+    "shelfY": 175,
+    "price": 6,
+    "category": "Beverages"
+  },
+  {
+    "id": "cookie",
+    "name": "Cookie",
+    "icon": "🍪",
+    "shelfX": 165,
+    "shelfY": 345,
+    "price": 3,
+    "category": "Snacks"
+  },
+  {
+    "id": "apple",
+    "name": "Apple",
+    "icon": "🍎",
+    "shelfX": 350,
+    "shelfY": 345,
+    "price": 2,
+    "category": "Produce"
+  },
+  {
+    "id": "banana",
+    "name": "Banana",
+    "icon": "🍌",
+    "shelfX": 535,
+    "shelfY": 345,
+    "price": 2,
+    "category": "Produce"
+  },
+  {
+    "id": "orange",
+    "name": "Orange",
+    "icon": "🍊",
+    "shelfX": 720,
+    "shelfY": 345,
+    "price": 3,
+    "category": "Produce"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "easy": {
+    "name": "Easy",
+    "time": 90,
+    "lives": 3,
+    "pointsPerOrder": 10,
+    "puzzleBonus": 15,
+    "orderSize": 2,
+    "description": "Relaxed pace with smaller shopping orders"
+  },
+  "medium": {
+    "name": "Medium",
+    "time": 75,
+    "lives": 3,
+    "pointsPerOrder": 15,
+    "puzzleBonus": 25,
+    "orderSize": 3,
+    "description": "Standard shopping rush with medium orders"
+  },
+  "difficult": {
+    "name": "Difficult",
+    "time": 60,
+    "lives": 3,
+    "pointsPerOrder": 20,
+    "puzzleBonus": 35,
+    "orderSize": 4,
+    "description": "Fast-paced retail frenzy for supermarket pros"
+  }
+}
