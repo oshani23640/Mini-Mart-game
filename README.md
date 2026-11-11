@@ -1,10 +1,9 @@
+```text
 Mini-Mart-Game/
-│
 ├── backend/
 │   ├── api.php
 │   ├── config.php
 │   └── session.php
-│
 ├── css/
 │   ├── auth.css
 │   ├── common.css
@@ -13,33 +12,26 @@ Mini-Mart-Game/
 │   ├── instructions.css
 │   ├── menu.css
 │   └── score.css
-│
 ├── data/
 │   ├── levels.json
 │   └── products.json
-│
 ├── database/
 │   └── minimart_db.sql
-│
 ├── images/
 │   ├── Game-Background.jpg
 │   ├── GameMenu-Background.jpg
 │   └── mini.jpg
-│
 ├── js/
 │   ├── auth/
 │   │   ├── login.js
 │   │   └── signup.js
-│   │
 │   ├── domain/
 │   │   ├── customer.js
 │   │   ├── gamestate.js
 │   │   ├── player.js
 │   │   └── product.js
-│   │
 │   ├── events/
 │   │   └── gameEvents.js
-│   │
 │   ├── gameplay/
 │   │   ├── customerManager.js
 │   │   ├── game.js
@@ -47,13 +39,10 @@ Mini-Mart-Game/
 │   │   ├── productManager.js
 │   │   ├── scoreHistory.js
 │   │   └── timer.js
-│   │
-│   ├── services/
-│   │   ├── api.js
-│   │   └── puzzle.js
-│   │
-│   └── app.js
-│
+│   └── services/
+│       ├── api.js
+│       └── puzzle.js
+├── app.js
 ├── pages/
 │   ├── auth_guard.php
 │   ├── difficulty.php
@@ -64,5 +53,5 @@ Mini-Mart-Game/
 │   ├── menu.php
 │   ├── score.php
 │   └── signup.php
-│
 └── README.md
+```
