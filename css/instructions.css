@@ -1,0 +1,113 @@
+/* Styles the instructions page. */
+.instructions-card {
+    max-width: 850px;
+    padding: 35px 45px;
+}
+
+/* Styles the introductory text. */
+.instructions-card h2 {
+    margin-bottom: 15px;
+}
+.instructions-card .description {
+    max-width: 680px;
+    margin-bottom: 25px;
+}
+
+/* Arranges the gameplay instructions. */
+.instruction-content {
+    width: 100%;
+    text-align: left;
+    padding: 5px 15px;
+}
+
+/* Styles each instruction step. */
+.instruction-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px 15px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.55);
+    transition: transform 0.25s ease;
+}
+.instruction-step:last-child {
+    border-bottom: none;
+}
+.instruction-step:hover {
+    transform: translateX(5px);
+}
+
+/* Styles the numbered step indicators. */
+.step-number {
+    min-width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(29, 21, 75, 0.75);
+    border: 2px solid rgba(255, 255, 255, 0.65);
+    border-radius: 50%;
+    color: #ffd166;
+    font-family: "Ultra", serif;
+    font-size: 14px;
+    box-shadow: 0 4px 10px rgba(35, 25, 80, 0.2);
+}
+
+/* Styles the text for each instruction step. */
+.step-content {
+    flex: 1;
+}
+.step-content h3 {
+    font-family: "Skranji", cursive;
+    color: #ffd166;
+    font-size: 21px;
+    margin-bottom: 9px;
+    text-shadow: 1px 2px 4px rgba(30, 25, 65, 0.4);
+}
+.step-content p {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.9;
+    text-shadow: 1px 2px 3px rgba(30, 25, 65, 0.45);
+}
+
+/* Styles the keyboard key labels. */
+.key-badge {
+    display: inline-block;
+    background: #393a72;
+    color: #ffd166;
+    padding: 3px 9px;
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    font-family: monospace;
+    font-size: 13px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(30, 25, 65, 0.2);
+}
+
+/* Adjusts the page layout for smaller screens. */
+
+@media (max-width: 600px) {
+    .instructions-card {
+        padding: 25px 16px;
+    }
+    .instruction-content {
+        padding: 0;
+    }
+    .instruction-step {
+        gap: 12px;
+        padding: 18px 5px;
+    }
+    .step-number {
+        min-width: 38px;
+        height: 38px;
+        font-size: 11px;
+    }
+    .step-content h3 {
+        font-size: 18px;
+    }
+    .step-content p {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+}

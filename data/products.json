@@ -1,0 +1,58 @@
+[
+  {
+    "id": "cake",
+    "name": "Cake",
+    "icon": "🍰",
+    "shelfX": 170,
+    "shelfY": 190
+  },
+  {
+    "id": "bread",
+    "name": "Bread",
+    "icon": "🍞",
+    "shelfX": 377,
+    "shelfY": 190
+  },
+  {
+    "id": "milk",
+    "name": "Milk",
+    "icon": "🥛",
+    "shelfX": 583,
+    "shelfY": 190
+  },
+  {
+    "id": "juice",
+    "name": "Juice",
+    "icon": "🧃",
+    "shelfX": 790,
+    "shelfY": 190
+  },
+  {
+    "id": "cookie",
+    "name": "Cookie",
+    "icon": "🍪",
+    "shelfX": 170,
+    "shelfY": 360
+  },
+  {
+    "id": "apple",
+    "name": "Apple",
+    "icon": "🍎",
+    "shelfX": 377,
+    "shelfY": 360
+  },
+  {
+    "id": "banana",
+    "name": "Banana",
+    "icon": "🍌",
+    "shelfX": 583,
+    "shelfY": 360
+  },
+  {
+    "id": "orange",
+    "name": "Orange",
+    "icon": "🍊",
+    "shelfX": 790,
+    "shelfY": 360
+  }
+]

@@ -1,0 +1,87 @@
+/* Styles the saved score history page. */
+.scores-table-wrapper {
+    margin: 25px auto;
+    max-height: 320px;
+    overflow-y: auto;
+    background: rgba(220, 213, 213, 0.15);
+    border-radius: 16px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.scores-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+    font-size: 1rem;
+}
+
+/* Sets the text colour in the score table. */
+#scoresTable tbody td {
+    color: #010a28;
+}
+.scores-table th {
+    padding: 12px;
+    background: rgba(7, 2, 23, 0.4);
+    color: #ffd166;
+    font-family: "Skranji", cursive;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.scores-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid rgba(6, 3, 3, 0.15);
+    text-align: center;
+}
+.scores-table tr:hover {
+    background: rgba(46, 40, 40, 0.1);
+}
+.score-badge {
+    display: inline-block;
+    background: #ffb703;
+    color: #12082b;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+.empty-scores {
+    color: white;
+    font-size: 1.1rem;
+    padding: 30px;
+    opacity: 0.9;
+}
+.empty-scores[hidden],
+.scores-table[hidden] {
+    display: none;
+}
+.btn-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.clear-btn {
+    background: rgba(239, 68, 68, 0.8) !important;
+    color: white !important;
+}
+.clear-btn:hover {
+    background: rgba(220, 38, 38, 1) !important;
+}
+
+/* Adjusts the page layout for smaller screens. */
+
+@media (max-width: 600px) {
+    .scores-table-wrapper {
+        padding: 6px;
+        overflow-x: auto;
+    }
+    .scores-table {
+        min-width: 520px;
+        font-size: 0.85rem;
+    }
+    .scores-table th,
+    .scores-table td {
+        padding: 9px 7px;
+    }
+}

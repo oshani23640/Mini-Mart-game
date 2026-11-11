@@ -1,0 +1,271 @@
+/* Sets the page background, font and overall layout. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    font-family: Arial, sans-serif;
+
+    background-image: url("../images/GameMenu-Background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Styles the translucent menu panel. */
+
+.menu-card {
+    width: 100%;
+    max-width: 1000px;
+    min-height: 600px;
+
+    border-radius: 25px;
+    overflow: hidden;
+
+    /* Soft lavender glass effect */
+    background: rgba(176, 176, 180, 0.2);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+
+    box-shadow: 0 15px 40px rgba(25, 20, 70, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    text-align: center;
+    color: white;
+
+    margin: auto;
+}
+
+/* Uses the Monoton font for the main title. */
+
+.menu-card h1 {
+    font-family: "Skranji", system-ui;
+
+    font-size: clamp(42px, 7vw, 75px);
+
+    font-weight: 700;
+
+    color: #2a2b65;
+
+    margin-bottom: 15px;
+
+    text-shadow: 1px 2px 5px rgba(255, 255, 255, 0.45);
+}
+
+/* Styles the welcome heading. */
+
+.menu-card h2 {
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+
+    color: #ffffff;
+
+    margin-bottom: 12px;
+
+    text-shadow: 1px 2px 5px rgba(30, 25, 65, 0.65);
+}
+
+/* Styles the welcome message. */
+
+.welcome-text {
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+
+    color: #ffffff;
+
+    margin-bottom: 8px;
+
+    text-shadow: 1px 2px 4px rgba(30, 25, 65, 0.55);
+}
+
+/* Styles the displayed player name. */
+
+#player-name {
+    color: #182f54;
+    font-weight: bold;
+
+    text-shadow: 1px 1px 4px rgba(35, 25, 80, 0.5);
+}
+
+/* Styles the supporting heading text. */
+
+.subtitle {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+
+    color: #ffffff;
+
+    margin-bottom: 25px;
+
+    text-shadow: 1px 2px 4px rgba(30, 25, 65, 0.6);
+}
+
+/* Arranges the menu buttons. */
+
+.menu-buttons {
+    width: 260px;
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+/* Sets the shared menu button appearance and font. */
+
+.menu-btn {
+    width: 100%;
+
+    padding: 13px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 12px;
+
+    font-family: "Ultra", serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(35, 25, 80, 0.12);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Changes button appearance on hover. */
+
+.menu-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 7px 15px rgba(35, 25, 80, 0.25);
+}
+
+.menu-btn:active {
+    transform: translateY(0);
+}
+
+/* Styles the Start Game button. */
+
+.start-btn {
+    background: #4f438f;
+    color: #ffffff;
+}
+
+.start-btn:hover {
+    background: #4f438f;
+}
+
+/* Styles the Score History button. */
+
+.score-btn {
+    background: #c2d8fa;
+    color: #30345e;
+}
+
+.score-btn:hover {
+    background: #c2d8fa;
+}
+
+/* Styles the How to Play button. */
+
+.instructions-btn {
+    background: #a18bea;
+    color: #30265c;
+}
+
+.instructions-btn:hover {
+    background: #a18bea;
+}
+
+/* Styles the Logout button. */
+
+.logout-btn {
+    background: #c7778d;
+    color: #ffffff;
+}
+
+.logout-btn:hover {
+    background: #c7778d;
+}
+
+/* Shows focus when a menu control is reached by keyboard. */
+
+.menu-btn:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* Adjusts the page layout for tablet screens. */
+
+@media (max-width: 900px) {
+    .menu-card {
+        width: 100%;
+        min-height: 580px;
+        padding: 25px;
+    }
+}
+
+/* Adjusts the page layout for mobile screens. */
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+        background-attachment: scroll;
+    }
+
+    .menu-card {
+        width: 100%;
+        min-height: 600px;
+        height: auto;
+
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .menu-card h1 {
+        font-size: 36px;
+    }
+
+    .menu-card h2 {
+        font-size: 23px;
+    }
+
+    .welcome-text {
+        font-size: 17px;
+    }
+
+    .menu-btn {
+        font-size: 14px;
+    }
+
+    .menu-buttons {
+        width: 100%;
+        max-width: 260px;
+    }
+}
