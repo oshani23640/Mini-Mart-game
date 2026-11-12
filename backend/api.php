@@ -11,7 +11,7 @@ header('Cache-Control: no-store');
 function respond(int $status, array $data): never
 {
     http_response_code($status);
-    echo json_encode($data);
+    echo json_encode($data); 
     exit;
 }
 

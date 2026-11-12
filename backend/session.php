@@ -1,6 +1,6 @@
 <?php
-// Starts the session with secure cookie settings.
-// Used by the API and every page.
+// Starts the session with secure cookie settings
+// Used by the API and every page
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_set_cookie_params([
         'httponly' => true,
