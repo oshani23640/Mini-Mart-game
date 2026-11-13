@@ -1,0 +1,228 @@
+/* Sets the page background, font and overall layout. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-image: url("../gameAssets/menuBackground.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.difficulty-container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.difficulty-card {
+    width: 100%;
+    max-width: 1000px;
+    padding: 40px 35px;
+    text-align: center;
+    background: rgba(125, 124, 133, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(25, 20, 70, 0.25);
+}
+
+.difficulty-card h1 {
+    font-family: "Skranji", system-ui;
+    font-size: clamp(42px, 7vw, 75px);
+    font-weight: 700;
+    color: #393a72;
+    margin-bottom: 15px;
+    text-shadow: 1px 2px 5px rgba(255, 255, 255, 0.45);
+}
+
+.difficulty-card h2 {
+    font-family: "Ultra", serif;
+    font-size: clamp(20px, 4vw, 29px);
+    font-weight: 400;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-shadow: 1px 2px 5px rgba(30, 25, 65, 0.65);
+}
+
+.description {
+    font-family: Arial, sans-serif;
+    max-width: 650px;
+    margin: 0 auto 35px;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.8;
+    text-shadow: 1px 2px 4px rgba(30, 25, 65, 0.6);
+}
+
+.difficulty-options {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.difficulty-button {
+    flex: 1 1 200px;
+    max-width: 280px;
+    min-height: 205px;
+    padding: 22px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 3px solid transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.difficulty-button:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(35, 25, 80, 0.18);
+}
+.difficulty-button:active {
+    transform: translateY(-2px);
+}
+
+.easy {
+    background: #d9f8df;
+    border-color: #69bd7b;
+    color: #216b35;
+}
+.easy:hover {
+    background: #c5f0ce;
+}
+
+.medium {
+    background: #fff0bd;
+    border-color: #edc34d;
+    color: #795b00;
+}
+.medium:hover {
+    background: #ffe69a;
+}
+
+.difficult {
+    background: #ffdce2;
+    border-color: #ef8294;
+    color: #a32943;
+}
+.difficult:hover {
+    background: #ffc8d2;
+}
+
+.level-name {
+    font-family: "Ultra", serif;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.level-description {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.level-detail {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.back-button {
+    margin-top: 30px;
+    padding: 13px 26px;
+    background: #405d78;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 12px;
+    font-family: "Ultra", serif;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(35, 25, 80, 0.12);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-button:hover {
+    background: #243b53;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(35, 25, 80, 0.25);
+}
+
+.difficulty-button:focus-visible,
+.back-button:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+    .difficulty-card {
+        padding: 35px 25px;
+    }
+    .difficulty-options {
+        gap: 15px;
+    }
+    .difficulty-button {
+        flex: 1 1 180px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+        background-attachment: scroll;
+    }
+    .difficulty-card {
+        padding: 28px 18px;
+        border-radius: 20px;
+    }
+    .difficulty-card h1 {
+        font-size: 42px;
+    }
+    .difficulty-card h2 {
+        font-size: 21px;
+        line-height: 1.5;
+    }
+    .description {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+    .difficulty-options {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .difficulty-button {
+        width: 100%;
+        max-width: 350px;
+        min-height: 175px;
+    }
+    .level-name {
+        font-size: 19px;
+    }
+    .back-button {
+        width: 100%;
+        max-width: 280px;
+    }
+}
