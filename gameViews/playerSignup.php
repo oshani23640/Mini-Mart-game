@@ -34,7 +34,7 @@ if (!empty($_SESSION['user_id'])) {
                     <input
                         type="text"
                         id="username"
-                        placeholder="Choose a username"
+                        placeholder="Enter username"
                         required
                     >
 
@@ -42,7 +42,7 @@ if (!empty($_SESSION['user_id'])) {
                     <input
                         type="password"
                         id="password"
-                        placeholder="Choose a password"
+                        placeholder="Enter password"
                         required
                     >
 
@@ -50,7 +50,7 @@ if (!empty($_SESSION['user_id'])) {
                     <input
                         type="password"
                         id="confirmPassword"
-                        placeholder="Confirm your password"
+                        placeholder="Confirm password"
                         required
                     >
 
