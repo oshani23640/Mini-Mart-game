@@ -1,4 +1,4 @@
-// Main supermarket gameplay coordinator and animation loop.
+// Main supermarket gameplay coordinator and animation loop
 
 "use strict";
 
@@ -43,10 +43,12 @@ function openCheckoutModal() {
     gameState.isPuzzleModalOpen = true;
     gameplayTimer.pause();
 
-    ui.openCheckoutModal(gameState.currentCustomer);
+    // Pause play while the checkout challenge is fetched and answered
+    ui.openCheckoutModal();
     puzzleChallengeService.getChallengePuzzle();
 }
 
+// Validate a checkout answer, then either serve the customer or deduct a life
 function submitPuzzleAnswer(val) {
     if (puzzleChallengeService.isRequesting) return;
     if (!puzzleChallengeService.currentPuzzle) {
@@ -91,6 +93,7 @@ function submitPuzzleAnswer(val) {
 }
 
 function collectProduct() {
+    // Open checkout after the last requested item has been collected
     const result = ProductCollectionManager.tryCollectProduct(player, gameState);
     if (!result || result.status !== "COLLECTED") return;
 
@@ -110,6 +113,7 @@ function collectProduct() {
 function handleInteraction() {
     if (!gameState.running || gameState.isGameOver) return;
 
+    // Enter submits an open puzzle, checks out at the register, or collects nearby goods
     if (gameState.isPuzzleModalOpen) {
         const val = ui.puzzleAnswerInput ? ui.puzzleAnswerInput.value.trim() : "";
         submitPuzzleAnswer(val);
@@ -129,6 +133,7 @@ function handleInteraction() {
 function gameLoop() {
     if (gameState.isGameOver) return;
 
+    // Move only during active play, then redraw the scene for the next frame
     if (gameState.running && !gameState.isPuzzleModalOpen) {
         player.updateMovement(inputHandler.keys, canMoveTo);
     }
@@ -146,6 +151,7 @@ function gameLoop() {
 }
 
 function resetGame() {
+    // Reset state and UI, create the first customer, and restart timed gameplay
     cancelAnimationFrame(animationFrameId);
     gameplayTimer.stop();
     inputHandler.reset();
@@ -171,6 +177,7 @@ function resetGame() {
     animationFrameId = requestAnimationFrame(gameLoop);
 }
 
+// Connect the UI and input handlers before starting the first game
 ui.initEventSubscriptions(
     productCatalog,
     () => player.basket,

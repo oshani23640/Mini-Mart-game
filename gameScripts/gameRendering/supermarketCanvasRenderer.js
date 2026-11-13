@@ -1,4 +1,4 @@
-// Canvas 2D Graphics Renderer for supermarket scene, player, shelves, products, and checkout.
+// Canvas 2D Graphics Renderer for supermarket scene, player, shelves, products, and checkout
 
 "use strict";
 
@@ -156,6 +156,7 @@ class SupermarketCanvasRenderer {
     }
 
     render(player, products, currentCustomer, isNearRegister, checkoutBox, registerPos) {
+        // Draw the scene from its background up through the player
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.drawFloor();
         this.drawShelves();

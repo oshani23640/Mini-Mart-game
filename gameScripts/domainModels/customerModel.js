@@ -1,7 +1,7 @@
-// Customer details and order tracking.
+// Customer details and order tracking
 
 class OrderItem {
-    // One product and the quantity wanted.
+    // One product and the quantity wanted
     constructor(productId, quantity) {
         this.productId = productId;
         this.quantity = quantity;
@@ -14,7 +14,7 @@ class OrderItem {
 }
 
 class Customer {
-    // Creates a customer with a name, avatar and message.
+    // Creates a customer with a name, avatar and message
     constructor(name, avatar, message) {
         this.name = name;
         this.avatar = avatar;
@@ -23,7 +23,7 @@ class Customer {
         this.order = [];
     }
 
-    // Builds a random order.
+    // Builds a random order
     generateOrder(availableProducts, orderSize = 2) {
         this.order = [];
         const shuffled = [...availableProducts].sort(() => Math.random() - 0.5);
@@ -35,18 +35,7 @@ class Customer {
         });
     }
 
-    // Returns order progress from 0 to 100.
-    getProgressPercentage() {
-        let total = 0;
-        let collected = 0;
-        this.order.forEach((item) => {
-            total += item.quantity;
-            collected += Math.min(item.collected, item.quantity);
-        });
-        return total === 0 ? 0 : Math.round((collected / total) * 100);
-    }
-
-    // Returns true when every item is collected.
+    // Returns true when every item is collected
     isOrderFulfilled() {
         return this.order.length > 0 && this.order.every((item) => item.isComplete);
     }

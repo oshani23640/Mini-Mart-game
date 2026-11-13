@@ -1,4 +1,4 @@
-// Client-server score persistence service.
+// Client-server score persistence service
 
 "use strict";
 
@@ -6,6 +6,7 @@ class ScoreDataService {
     static BASE_URL = "../gameBackend/gameApi.php";
 
     static async saveScore(score, difficulty) {
+        // Send the completed game score and report server errors to the caller
         const response = await fetch(this.BASE_URL + "?action=save_score", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -21,6 +22,7 @@ class ScoreDataService {
     }
 
     static async getScores() {
+        // Retrieve the leaderboard entries for display
         const response = await fetch(this.BASE_URL + "?action=get_scores", {
             method: "GET",
             credentials: "same-origin"
@@ -34,6 +36,7 @@ class ScoreDataService {
     }
 
     static async clearScores() {
+        // Request deletion of this player's saved score history
         const response = await fetch(this.BASE_URL + "?action=clear_scores", {
             method: "POST",
             credentials: "same-origin"

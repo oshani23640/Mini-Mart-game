@@ -1,4 +1,4 @@
-// Countdown game timer manager.
+// Countdown game timer manager
 
 "use strict";
 
@@ -12,6 +12,7 @@ class GameplayTimer {
         this.stop();
         this.isPaused = false;
 
+        // Tick once per second while the game is active, and end it at zero
         this.intervalId = setInterval(() => {
             if (this.isPaused || !gameState.running || gameState.isGameOver) {
                 return;

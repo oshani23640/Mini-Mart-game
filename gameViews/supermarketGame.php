@@ -57,13 +57,10 @@ $gameConfig = ['difficulty' => $levels[$difficulty], 'products' => load_json('st
                 <div class="brand">
                     <div>
                         <h1>Mini Mart</h1>
-                        <p>Your little shop adventure!</p>
                     </div>
                 </div>
 
-                <div class="welcome-message">
-                    <span>Welcome, <strong id="playerName">Shopkeeper</strong>!</span>
-                </div>
+            
                 <div class="header-buttons">
                     <button id="restartButton" class="restart-button">Restart</button>
                     <a href="mainMenu.php" class="exit-button">Menu</a>
@@ -128,17 +125,6 @@ $gameConfig = ['difficulty' => $levels[$difficulty], 'products' => load_json('st
                     <h3 class="order-title">Items to Collect</h3>
                     <div id="orderList" class="order-list"></div>
 
-                    <div class="progress-section">
-                        <div class="progress-label">
-                            <span>Order Progress</span>
-                            <strong id="progressText">0%</strong>
-                        </div>
-
-                        <div class="progress-track">
-                            <div id="progressBar" class="progress-bar"></div>
-                        </div>
-                    </div>
-
                     <!-- Basket indicator -->
                     <div class="basket-box">
                         <span>🧺</span>
@@ -192,16 +178,6 @@ $gameConfig = ['difficulty' => $levels[$difficulty], 'products' => load_json('st
         <!-- Checkout challenge modal -->
         <div id="checkoutModal" class="checkout-overlay hidden">
             <div class="checkout-card">
-                <div class="checkout-customer-box">
-                    <span id="puzzleCustomerAvatar" class="checkout-avatar">👩</span>
-                    <div>
-                        <h3 id="puzzleCustomerName">Customer Checkout</h3>
-                        <p id="puzzleCustomerPrompt">
-                            Enter the register security code (count the fish in the picture) to complete payment!
-                        </p>
-                    </div>
-                </div>
-
                 <div class="puzzle-viewport">
                     <div id="puzzleLoading" class="puzzle-loading">
                         <span class="spinner">⏳</span>

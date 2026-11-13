@@ -1,4 +1,4 @@
-// Event names and a small event bus.
+// Event names and a small event bus
 
 // Event names
 const GameEvents = Object.freeze({
@@ -26,11 +26,11 @@ const GameEvents = Object.freeze({
 
 class EventBus {
     constructor() {
-        // Maps each event name to its listeners.
+        // Maps each event name to its listeners
         this.listeners = new Map();
     }
 
-    // Adds a listener and returns a function to remove it.
+    // Adds a listener and returns a function to remove it
     on(eventName, callback) {
         if (!this.listeners.has(eventName)) {
             this.listeners.set(eventName, new Set());
@@ -41,14 +41,14 @@ class EventBus {
         return () => this.off(eventName, callback);
     }
 
-    // Removes a listener.
+    // Removes a listener
     off(eventName, callback) {
         if (this.listeners.has(eventName)) {
             this.listeners.get(eventName).delete(callback);
         }
     }
 
-    // Calls every listener of an event.
+    // Calls every listener of an event
     emit(eventName, payload) {
         if (this.listeners.has(eventName)) {
             this.listeners.get(eventName).forEach((callback) => {

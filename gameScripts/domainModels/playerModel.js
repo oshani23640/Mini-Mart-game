@@ -1,7 +1,7 @@
-// Stores the player's position, movement and basket.
+// Stores the player's position, movement and basket
 
 class Player {
-    // Creates the player at a start position.
+    // Creates the player at a start position
     constructor(startX = 75, startY = 480, speed = 4.0) {
         this.startX = startX;
         this.startY = startY;
@@ -16,7 +16,7 @@ class Player {
         this.basket = [];
     }
 
-    // Moves the player back to the start and empties the basket.
+    // Moves the player back to the start and empties the basket
     reset() {
         this.x = this.startX;
         this.y = this.startY;
@@ -24,7 +24,7 @@ class Player {
         this.basket = [];
     }
 
-    // Moves the player from the pressed keys if the move is allowed.
+    // Moves the player from the pressed keys if the move is allowed
     updateMovement(keys, canMoveValidator) {
         let dx = 0;
         let dy = 0;
@@ -68,13 +68,13 @@ class Player {
         }
     }
 
-    // Adds a product to the basket.
+    // Adds a product to the basket
     addToBasket(productId) {
         this.basket.push(productId);
         eventBus.emit(GameEvents.ITEM_PICKED, { productId, basketCount: this.basket.length });
     }
 
-    // Empties the basket.
+    // Empties the basket
     emptyBasket() {
         this.basket = [];
     }

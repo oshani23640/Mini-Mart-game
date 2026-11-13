@@ -1,4 +1,4 @@
-// Client for Marc Conrad's external Fish Game web service.
+// Client for Marc Conrad's external Fish Game web service
 
 "use strict";
 
@@ -10,6 +10,7 @@ class FishPuzzleApiClient {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), this.TIMEOUT_MS);
 
+        // Bound the request, reject invalid responses, and return a normalized puzzle
         try {
             const response = await fetch(this.BASE_URL + "?out=json", {
                 method: "GET",

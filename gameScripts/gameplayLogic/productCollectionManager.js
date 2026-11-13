@@ -1,8 +1,9 @@
-// Shelf interaction and product collection manager.
+// Shelf interaction and product collection manager
 
 "use strict";
 
 class ProductCollectionManager {
+    // Collect only products in the active order and refresh the order display
     static tryCollectProduct(player, gameState) {
         if (!gameState.running || gameState.isGameOver) return null;
 
@@ -27,8 +28,7 @@ class ProductCollectionManager {
         player.addToBasket(product.id);
 
         eventBus.emit(GameEvents.ORDER_UPDATED, {
-            customer: gameState.currentCustomer,
-            progress: gameState.currentCustomer.getProgressPercentage()
+            customer: gameState.currentCustomer
         });
 
         return { product, status: "COLLECTED" };

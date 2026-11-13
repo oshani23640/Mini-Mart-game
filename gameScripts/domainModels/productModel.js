@@ -1,7 +1,7 @@
-// Shop products and the product catalogue.
+// Shop products and the product catalogue
 
 class Product {
-    // Creates a product with its shelf position.
+    // Creates a product with its shelf position
     constructor(id, name, icon, shelfX, shelfY) {
         this.id = id;
         this.name = name;
@@ -10,7 +10,7 @@ class Product {
         this.y = shelfY;
     }
 
-    // Checks if the player is close enough to collect this product.
+    // Checks if the player is close enough to collect this product
     isWithinReach(px, py, reachDistance = 48) {
         return Math.hypot(this.x - px, this.y - py) <= reachDistance;
     }
@@ -22,17 +22,17 @@ class ProductCatalog {
         this.items = [];
     }
 
-    // Loads products from the data file.
+    // Loads products from the data file
     load(rawProducts) {
         this.items = rawProducts.map((p) => new Product(p.id, p.name, p.icon, p.shelfX, p.shelfY));
     }
 
-    // Finds a product by ID.
+    // Finds a product by ID
     findById(id) {
         return this.items.find((p) => p.id === id);
     }
 
-    // Finds the closest product within maxDistance.
+    // Finds the closest product within maxDistance
     getNearest(x, y, maxDistance = 48) {
         let nearest = null;
         let minDistance = Infinity;

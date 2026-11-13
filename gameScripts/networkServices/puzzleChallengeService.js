@@ -1,4 +1,4 @@
-// Challenge puzzle lifecycle, prefetching, and answer validation.
+// Challenge puzzle lifecycle, prefetching, and answer validation
 
 "use strict";
 
@@ -15,6 +15,7 @@ class PuzzleChallengeService {
     async prefetchNextPuzzle() {
         if (this.isPrefetching || this.prefetchedPuzzle) return;
         this.isPrefetching = true;
+        // Prepare the next challenge early; checkout will retry if this fails
         try {
             this.prefetchedPuzzle = await FishPuzzleApiClient.fetchPuzzle();
         } catch (err) {
@@ -30,6 +31,7 @@ class PuzzleChallengeService {
         this.currentPuzzle = null;
         eventBus.emit(GameEvents.PUZZLE_REQUESTED);
 
+        // Use the prefetched challenge when available, otherwise request one now
         try {
             let puzzle = this.prefetchedPuzzle;
             this.prefetchedPuzzle = null;
@@ -52,6 +54,7 @@ class PuzzleChallengeService {
             return { correct: false, solution: 0 };
         }
 
+        // Compare the entered count with the current puzzle's solution
         const solution = this.currentPuzzle.fish;
         return { correct: parseInt(guess, 10) === solution, solution };
     }

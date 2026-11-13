@@ -1,9 +1,10 @@
-// In-game HUD, customer order panel, and checkout modal controller.
+// In-game HUD, customer order panel, and checkout modal controller
 
 "use strict";
 
 class GameplayUiController {
     constructor() {
+        // Cache the page elements this controller updates
         this.scoreElement = document.getElementById("score");
         this.timerElement = document.getElementById("timer");
         this.livesElement = document.getElementById("lives");
@@ -14,8 +15,6 @@ class GameplayUiController {
         this.customerNameElement = document.getElementById("customerName");
         this.customerMessageElement = document.getElementById("customerMessage");
         this.orderListElement = document.getElementById("orderList");
-        this.progressTextElement = document.getElementById("progressText");
-        this.progressBarElement = document.getElementById("progressBar");
         this.basketCountElement = document.getElementById("basketCount");
         this.customerCountElement = document.getElementById("customerCount");
 
@@ -29,9 +28,6 @@ class GameplayUiController {
         this.finalScoreElement = document.getElementById("finalScore");
 
         this.checkoutModal = document.getElementById("checkoutModal");
-        this.puzzleCustomerAvatar = document.getElementById("puzzleCustomerAvatar");
-        this.puzzleCustomerName = document.getElementById("puzzleCustomerName");
-        this.puzzleCustomerPrompt = document.getElementById("puzzleCustomerPrompt");
         this.puzzleLoading = document.getElementById("puzzleLoading");
         this.puzzleImage = document.getElementById("puzzleImage");
         this.puzzleAnswerInput = document.getElementById("puzzleAnswerInput");
@@ -40,6 +36,7 @@ class GameplayUiController {
         this.numpadButtons = document.querySelectorAll(".numpad-btn");
     }
 
+    // Keep the HUD and modal displays in sync with game events
     initEventSubscriptions(catalog, getPlayerBasket, getGameState) {
         eventBus.on(GameEvents.SCORE_CHANGED, (score) => {
             if (this.scoreElement) this.scoreElement.textContent = score;
@@ -117,6 +114,7 @@ class GameplayUiController {
         });
     }
 
+    // Rebuild the current customer's item list and collection counts
     renderOrder(customer, catalog) {
         if (!this.orderListElement) return;
         this.orderListElement.innerHTML = "";
@@ -151,12 +149,9 @@ class GameplayUiController {
             row.appendChild(quantity);
             this.orderListElement.appendChild(row);
         });
-
-        const progress = customer.getProgressPercentage();
-        if (this.progressTextElement) this.progressTextElement.textContent = progress + "%";
-        if (this.progressBarElement) this.progressBarElement.style.width = progress + "%";
     }
 
+    // Refresh the basket total and customers-served count
     updateBasketUI(basketCount, ordersCompleted, targetOrders) {
         if (this.basketCountElement) {
             this.basketCountElement.textContent =
@@ -168,32 +163,24 @@ class GameplayUiController {
         }
     }
 
-    openCheckoutModal(customer) {
+    // Open checkout and clear any answer left from the previous challenge
+    openCheckoutModal() {
         if (!this.checkoutModal) return;
         this.checkoutModal.classList.remove("hidden");
 
-        if (this.puzzleCustomerAvatar) {
-            this.puzzleCustomerAvatar.textContent = customer ? customer.avatar : "👩";
-        }
-        if (this.puzzleCustomerName) {
-            this.puzzleCustomerName.textContent =
-                (customer ? customer.name : "Customer") + "'s Order Complete!";
-        }
-        if (this.puzzleCustomerPrompt) {
-            this.puzzleCustomerPrompt.textContent =
-                "All order items collected! Solve this Fish API challenge to complete checkout before the next customer arrives:";
-        }
         if (this.puzzleAnswerInput) {
             this.puzzleAnswerInput.value = "";
         }
     }
 
+    // Hide the checkout challenge
     closeCheckoutModal() {
         if (this.checkoutModal) {
             this.checkoutModal.classList.add("hidden");
         }
     }
 
+    // Show puzzle validation feedback with its matching visual state
     setPuzzleFeedback(text, isError = false, isSuccess = false) {
         if (!this.puzzleFeedback) return;
         this.puzzleFeedback.textContent = text;
@@ -202,6 +189,7 @@ class GameplayUiController {
         if (isSuccess) this.puzzleFeedback.classList.add("success");
     }
 
+    // Send button, Enter-key, and numpad submissions to the same handler
     bindPuzzleSubmit(handler) {
         if (this.submitPuzzleBtn) {
             this.submitPuzzleBtn.addEventListener("click", () => {
@@ -228,11 +216,13 @@ class GameplayUiController {
         });
     }
 
+    // Connect both restart buttons to the game restart handler
     bindRestart(handler) {
         if (this.restartButton) this.restartButton.addEventListener("click", handler);
         if (this.playAgainButton) this.playAgainButton.addEventListener("click", handler);
     }
 
+    // Display the game result and final score
     showGameOver(won, score, reason) {
         if (!this.gameOverOverlay) return;
         this.gameOverOverlay.classList.remove("hidden");
@@ -258,6 +248,7 @@ class GameplayUiController {
         }
     }
 
+    // Restore the UI state and player labels for a new game
     reset(difficultyName, playerName) {
         if (this.gameOverOverlay) this.gameOverOverlay.classList.add("hidden");
         this.closeCheckoutModal();

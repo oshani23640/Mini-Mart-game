@@ -1,4 +1,4 @@
-// Leaderboard table controller.
+// Leaderboard table controller
 
 "use strict";
 
@@ -7,6 +7,7 @@ async function loadScores() {
     const table = document.getElementById("scoresTable");
     const emptyMsg = document.getElementById("emptyMessage");
 
+    // Fetch scores, render ranked rows, or show an empty/error state
     try {
         const scores = await ScoreDataService.getScores();
 
@@ -60,6 +61,7 @@ async function loadScores() {
 
 async function clearScores() {
     if (!confirm("Are you sure you want to clear your score history?")) return;
+    // Clear the stored scores and reload the table to reflect the result
     try {
         await ScoreDataService.clearScores();
         await loadScores();

@@ -8,6 +8,7 @@ if (loginForm) {
     loginForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
+        // Read the submitted credentials and authenticate with the server
         const username = document.getElementById("username").value.trim();
         const password = document.getElementById("password").value;
 

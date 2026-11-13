@@ -8,6 +8,7 @@ if (signupForm) {
     signupForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
+        // Validate the form before sending registration details to the server
         const username = document.getElementById("username").value.trim();
         const password = document.getElementById("password").value;
         const confirmPassword = document.getElementById("confirmPassword").value;
@@ -27,6 +28,7 @@ if (signupForm) {
             return;
         }
 
+        // Create the account and send successful signups to the login screen
         try {
             const response = await fetch("../gameBackend/gameApi.php?action=signup", {
                 method: "POST",

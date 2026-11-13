@@ -1,21 +1,22 @@
-// Customer spawning and order fulfillment.
+// Customer spawning and order fulfillment
 
 "use strict";
 
 class CustomerOrderManager {
     static CUSTOMER_TEMPLATES = [
-        { name: "Emma", avatar: "👩", message: "Hi! Could you help me find these items?" },
-        { name: "Noah", avatar: "👨", message: "I'm making dinner tonight, need a few things!" },
-        { name: "Lily", avatar: "👧", message: "Let's go shopping! I have my snack list ready." },
-        { name: "Oliver", avatar: "👦", message: "Hello shopkeeper! I need some treats please." },
-        { name: "Mia", avatar: "👩‍🦰", message: "Thanks for helping me grab these groceries!" },
-        { name: "Alex", avatar: "🧑", message: "Quick stop on my way home! Here's what I need." }
+        { name: "Emma", avatar: "👩" },
+        { name: "Noah", avatar: "👨" },
+        { name: "Lily", avatar: "👧" },
+        { name: "Oliver", avatar: "👦" },
+        { name: "Mia", avatar: "👩‍🦰"},
+        { name: "Alex", avatar: "🧑" }
     ];
 
     constructor() {
         this.previousIndex = -1;
     }
 
+    // Choose a different customer, generate their order, and notify the UI
     spawnNextCustomer(gameState) {
         let index;
         do {
@@ -31,14 +32,12 @@ class CustomerOrderManager {
         gameState.currentCustomer = customer;
 
         eventBus.emit(GameEvents.CUSTOMER_ARRIVED, customer);
-        eventBus.emit(GameEvents.ORDER_UPDATED, {
-            customer,
-            progress: customer.getProgressPercentage()
-        });
+        eventBus.emit(GameEvents.ORDER_UPDATED, { customer });
 
         return customer;
     }
 
+    // Award order points, clear the basket, and continue or finish the game
     fulfillCustomerOrder(gameState, player, bonusPoints = 0) {
         const totalPoints = gameState.pointsPerOrder + bonusPoints;
         gameState.addScore(totalPoints);

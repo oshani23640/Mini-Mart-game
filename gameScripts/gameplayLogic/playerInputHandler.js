@@ -1,4 +1,4 @@
-// Keyboard input management for player movements and interaction.
+// Keyboard input management for player movements and interaction
 
 "use strict";
 
@@ -16,6 +16,7 @@ class PlayerInputHandler {
     init(onInteractCallback) {
         this.onInteract = onInteractCallback;
 
+        // Register listeners once so repeated initialization does not duplicate input
         if (!this.isListening) {
             window.addEventListener("keydown", this.handleKeyDown);
             window.addEventListener("keyup", this.handleKeyUp);
@@ -33,6 +34,7 @@ class PlayerInputHandler {
 
         this.keys[key] = true;
 
+        // Enter triggers the current interaction only once per key press
         if (key === "Enter" && !event.repeat) {
             if (typeof this.onInteract === "function") {
                 this.onInteract();
@@ -45,6 +47,7 @@ class PlayerInputHandler {
     }
 
     handleBlur() {
+        // Clear held keys when the game loses focus
         this.reset();
     }
 
@@ -55,6 +58,7 @@ class PlayerInputHandler {
     }
 
     destroy() {
+        // Remove all global listeners and release any held-key state
         window.removeEventListener("keydown", this.handleKeyDown);
         window.removeEventListener("keyup", this.handleKeyUp);
         window.removeEventListener("blur", this.handleBlur);
