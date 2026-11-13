@@ -1,10 +1,3 @@
-# Mini Mart Game
-
-A distributed web application and supermarket game built with PHP, MySQL, and modular JavaScript. Developed for **CIS045-3 Distributed Service Architectures** coursework.
-
----
-
-## 📁 Project Directory Structure
 
 ```
 MiniMart/
@@ -73,43 +66,3 @@ MiniMart/
     └── supermarketGame.php                # Main supermarket canvas and checkout interface
 ```
 
----
-
-## 🎯 Architecture & Video Discussion Guide
-
-When discussing the application in your video presentation, you can present the four core areas:
-
-1. **Software Design Principles**:
-   - The system is organized into modular packages (`domainModels`, `gameplayLogic`, `gameRendering`, `userInterface`, `networkServices`).
-   - `gameplayCoordinator.js` acts as a mediator for the animation loop and game lifecycle without directly manipulating canvas pixels or raw HTML elements.
-   - Graphics rendering is isolated in `supermarketCanvasRenderer.js`.
-   - DOM updates and modal dialogues are isolated in `gameplayUiController.js`.
-   - Keyboard interaction is managed in `playerInputHandler.js`.
-   - Persistence calls are encapsulated in `scoreDataService.js`.
-
-2. **Event-Driven Programming**:
-   - `gameEventBus.js` provides a centralized publish-subscribe broker (`eventBus.emit()`, `eventBus.on()`).
-   - Gameplay events (`SCORE_CHANGED`, `CUSTOMER_ARRIVED`, `ORDER_UPDATED`, `PUZZLE_LOADED`, `GAME_OVER`) allow subsystems to communicate without direct dependencies.
-   - User inputs (keyboard, submit buttons, numpad buttons) trigger discrete application events.
-
-3. **Interoperability**:
-   - `fishPuzzleApiClient.js` communicates with the external third-party Marc Conrad Fish Game web service (`https://marcconrad.com/uob/fish/api.php?out=json`) over HTTP GET with timeout handling (`AbortController`).
-   - `scoreDataService.js` communicates with the local PHP REST API (`gameBackend/gameApi.php`) via JSON HTTP requests to store and retrieve player scores.
-
-4. **Virtual Identity & Security**:
-   - Player credentials are encrypted in MySQL using PHP's `password_hash()` (Bcrypt) and checked with `password_verify()`.
-   - `sessionManager.php` secures session cookies using `HttpOnly` and `SameSite=Lax` flags, and regenerates session IDs upon login to prevent session fixation.
-   - `authenticationGuard.php` protects private views, redirecting unauthenticated requests to `playerLogin.php`.
-
----
-
-## 🚀 How to Run the Application
-
-1. Place the `MiniMart/` directory into your WAMP/XAMPP web root (e.g. `C:/wamp64/www/MiniMart/`).
-2. Start Apache and MySQL services in WAMP/XAMPP.
-3. Import `gameDatabase/minimartDatabase.sql` into MySQL.
-4. Verify database credentials in `gameBackend/databaseConfig.php`.
-5. Open your browser and navigate to:
-   ```
-   http://localhost/MiniMart/
-   ```

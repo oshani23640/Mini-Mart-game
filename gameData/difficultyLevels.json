@@ -4,8 +4,8 @@
     "time": 90,
     "lives": 3,
     "pointsPerOrder": 10,
-    "puzzleBonus": 15,
-    "orderSize": 2,
+    "puzzleBonus": 25,
+    "orderSize": 3,
     "targetOrders": 10
   },
   "medium": {
@@ -22,8 +22,8 @@
     "time": 60,
     "lives": 3,
     "pointsPerOrder": 20,
-    "puzzleBonus": 35,
-    "orderSize": 4,
+    "puzzleBonus": 25,
+    "orderSize": 3,
     "targetOrders": 10
   }
 }
