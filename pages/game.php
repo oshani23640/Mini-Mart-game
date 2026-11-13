@@ -22,17 +22,29 @@ $gameConfig = ['difficulty' => $levels[$difficulty], 'products' => load_json('pr
 
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/game.css">
-    <!-- Game scripts -->
+    <!-- Core EventBus and Domain Models -->
     <script src="../js/events/gameEvents.js" defer></script>
-    <script src="../js/services/api.js" defer></script>
-    <script src="../js/services/puzzle.js" defer></script>
     <script src="../js/domain/product.js" defer></script>
     <script src="../js/domain/customer.js" defer></script>
     <script src="../js/domain/player.js" defer></script>
     <script src="../js/domain/gamestate.js" defer></script>
+
+    <!-- Services (Theme 3: Interoperability & Data Persistence) -->
+    <script src="../js/services/fishApi.js" defer></script>
+    <script src="../js/services/puzzleService.js" defer></script>
+    <script src="../js/services/scoreService.js" defer></script>
+
+    <!-- Gameplay Subsystems -->
     <script src="../js/gameplay/timer.js" defer></script>
     <script src="../js/gameplay/productManager.js" defer></script>
     <script src="../js/gameplay/customerManager.js" defer></script>
+    <script src="../js/gameplay/inputHandler.js" defer></script>
+
+    <!-- Presentation Layer (High Cohesion: View & HUD) -->
+    <script src="../js/rendering/gameRenderer.js" defer></script>
+    <script src="../js/ui/gameUI.js" defer></script>
+
+    <!-- Main Game Loop & Coordinator -->
     <script src="../js/gameplay/game.js" defer></script>
 </head>
 

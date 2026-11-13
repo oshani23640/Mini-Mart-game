@@ -1,5 +1,4 @@
 <?php
-// Mini Mart API: sign up, login and scores (MySQL).
 
 require_once __DIR__ . '/session.php';
 require_once __DIR__ . '/config.php';

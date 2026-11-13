@@ -1,36 +1,40 @@
-// Loads and clears the player's scores through the PHP API.
+// Score History View Controller
+// High Cohesion: Manages leaderboard table display, rank badges, and user actions on score.php.
+// Low Coupling: Delegates persistence operations to ScoreService.
+
+"use strict";
 
 async function loadScores() {
     const tbody = document.getElementById("scoresBody");
     const table = document.getElementById("scoresTable");
     const emptyMsg = document.getElementById("emptyMessage");
+
     try {
-        const response = await fetch("../backend/api.php?action=get_scores", {
-            credentials: "same-origin"
-        });
-        const result = await response.json();
-        if (!response.ok || !result.success)
-            throw new Error(result.message || "Could not load scores.");
-        const scores = result.scores || [];
+        const scores = await ScoreService.getScores();
+
         if (!scores.length) {
             table.style.display = "none";
             emptyMsg.hidden = false;
             emptyMsg.style.display = "block";
             return;
         }
+
         table.style.display = "table";
         emptyMsg.hidden = true;
         emptyMsg.style.display = "none";
         tbody.innerHTML = "";
+
         scores.forEach((entry, idx) => {
             const tr = document.createElement("tr");
-            let rank = `#${idx + 1}`;
+            let rank = "#" + (idx + 1);
             if (idx === 0) rank = "🥇 1st";
             else if (idx === 1) rank = "🥈 2nd";
             else if (idx === 2) rank = "🥉 3rd";
+
             const date = entry.created_at
                 ? new Date(entry.created_at.replace(" ", "T")).toLocaleDateString()
                 : "-";
+
             [
                 rank,
                 entry.username || window.MINIMART_USERNAME || "Player",
@@ -41,10 +45,12 @@ async function loadScores() {
                 const td = document.createElement("td");
                 td.textContent = value;
                 if (i === 0) td.style.fontWeight = "bold";
-                if (i === 3)
-                    td.innerHTML = `<span class="score-badge">${Number(value) || 0}</span>`;
+                if (i === 3) {
+                    td.innerHTML = '<span class="score-badge">' + (Number(value) || 0) + "</span>";
+                }
                 tr.appendChild(td);
             });
+
             tbody.appendChild(tr);
         });
     } catch (error) {
@@ -53,19 +59,15 @@ async function loadScores() {
         emptyMsg.style.display = "block";
     }
 }
+
 async function clearScores() {
     if (!confirm("Are you sure you want to clear your score history?")) return;
     try {
-        const response = await fetch("../backend/api.php?action=clear_scores", {
-            method: "POST",
-            credentials: "same-origin"
-        });
-        const result = await response.json();
-        if (!response.ok || !result.success)
-            throw new Error(result.message || "Could not clear scores.");
+        await ScoreService.clearScores();
         await loadScores();
     } catch (error) {
         alert(error.message || "Unable to clear score history.");
     }
 }
+
 document.addEventListener("DOMContentLoaded", loadScores);

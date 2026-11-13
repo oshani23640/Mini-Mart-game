@@ -61,6 +61,7 @@
         </section>
     </main>
 
-    <script src="../js/gameplay/scoreHistory.js" defer></script>
+    <script src="../js/services/scoreService.js" defer></script>
+    <script src="../js/ui/scoreHistory.js" defer></script>
 </body>
 </html>

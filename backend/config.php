@@ -1,5 +1,4 @@
 <?php
-// Backend settings (WAMP defaults).
 
 const DB_HOST = 'localhost';
 const DB_NAME = 'minimart_db';

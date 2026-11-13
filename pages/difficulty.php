@@ -21,7 +21,7 @@ $levels = load_json('levels');
         rel="stylesheet">
 
     <!-- Page script -->
-    <script src="../js/gameplay/levelManager.js" defer></script>
+    <script src="../js/ui/difficulty.js" defer></script>
 </head>
 
 <body>

@@ -57,7 +57,7 @@ class CustomerManager {
         if (gameState.ordersCompleted >= gameState.targetOrders) {
             gameState.endGame(
                 true,
-                `Congratulations! You completed ${gameState.targetOrders} customer orders!`
+                "Congratulations! You completed " + gameState.targetOrders + " customer orders!"
             );
             return;
         }

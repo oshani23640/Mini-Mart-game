@@ -55,7 +55,7 @@ class EventBus {
                 try {
                     callback(payload);
                 } catch (err) {
-                    console.error(`Error in event listener for "${eventName}":`, err);
+                    console.error("Error in event listener for \"" + eventName + "\":", err);
                 }
             });
         }

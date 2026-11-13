@@ -1,32 +1,33 @@
-// Loads checkout puzzles and checks player answers.
+// Challenge Puzzle Management
+// Manages puzzle fetching lifecycle, pre-fetching, and answer validation.
+
+"use strict";
 
 class PuzzleService {
     constructor() {
-        // Puzzle being answered, or null
         this.currentPuzzle = null;
-        // Puzzle fetched in advance, or null
         this.prefetchedPuzzle = null;
         this.isPrefetching = false;
         this.isRequesting = false;
 
-        // Fetch the first puzzle when the page opens
+        // Prefetch first challenge puzzle on startup
         this.prefetchNextPuzzle();
     }
 
-    // Loads the next puzzle in the background.
+    // Pre-fetches the next puzzle in the background for instant load
     async prefetchNextPuzzle() {
         if (this.isPrefetching || this.prefetchedPuzzle) return;
         this.isPrefetching = true;
         try {
             this.prefetchedPuzzle = await FishApiService.fetchPuzzle();
         } catch (err) {
-            // Ignored: checkout requests a puzzle again
+            // Handled gracefully when checkout requests the puzzle
         } finally {
             this.isPrefetching = false;
         }
     }
 
-    // Gets a puzzle for checkout and announces progress with events.
+    // Requests puzzle for checkout and emits corresponding events
     async getChallengePuzzle() {
         if (this.isRequesting) return;
         this.isRequesting = true;
@@ -36,7 +37,9 @@ class PuzzleService {
         try {
             let puzzle = this.prefetchedPuzzle;
             this.prefetchedPuzzle = null;
-            if (!puzzle) puzzle = await FishApiService.fetchPuzzle();
+            if (!puzzle) {
+                puzzle = await FishApiService.fetchPuzzle();
+            }
 
             this.currentPuzzle = puzzle;
             this.prefetchNextPuzzle();
@@ -48,7 +51,7 @@ class PuzzleService {
         }
     }
 
-    // Checks the player's answer against the current puzzle.
+    // Validates the player's answer against the current puzzle solution
     validateAnswer(guess) {
         if (!this.currentPuzzle) {
             return { correct: false, solution: 0 };
@@ -59,5 +62,5 @@ class PuzzleService {
     }
 }
 
-// Shared puzzle service
+// Shared puzzle service instance
 const puzzleService = new PuzzleService();

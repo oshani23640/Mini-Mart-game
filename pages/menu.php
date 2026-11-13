@@ -64,6 +64,6 @@
     </main>
 
     <!-- Page script -->
-    <script src="../js/app.js"></script>
+    <script src="../js/ui/menu.js"></script>
 </body>
 </html>
