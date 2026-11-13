@@ -26,9 +26,9 @@ async function loadScores() {
         scores.forEach((entry, idx) => {
             const tr = document.createElement("tr");
             let rank = "#" + (idx + 1);
-            if (idx === 0) rank = "🥇 1st";
-            else if (idx === 1) rank = "🥈 2nd";
-            else if (idx === 2) rank = "🥉 3rd";
+            if (idx === 0) rank = "1st";
+            else if (idx === 1) rank = "2nd";
+            else if (idx === 2) rank = "3rd";
 
             const date = entry.created_at
                 ? new Date(entry.created_at.replace(" ", "T")).toLocaleDateString()

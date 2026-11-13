@@ -1,4 +1,4 @@
-// Client for Marc Conrad's external Fish Game web service
+// external Fish Game web service
 
 "use strict";
 

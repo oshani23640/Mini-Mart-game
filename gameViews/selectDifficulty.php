@@ -28,7 +28,7 @@ $levels = load_json('difficultyLevels');
             <h2>Choose Your Challenge!</h2>
 
             <p class="description">
-                Welcome to your Mini Mart adventure!
+            
                 Choose your difficulty, serve your customers,
                 collect points, and become a shopping superstar!
             </p>
@@ -41,7 +41,7 @@ $levels = load_json('difficultyLevels');
                     <span class="level-name">EASY</span>
                     <span class="level-description">Take it easy!</span>
                     <span class="level-detail">
-                        ⏱ <?= (int)$levels['easy']['time'] ?> Seconds · ❤️ <?= (int)$levels['easy']['lives'] ?> Lives
+                         <?= (int)$levels['easy']['time'] ?> Seconds 
                     </span>
                 </button>
 
@@ -52,7 +52,7 @@ $levels = load_json('difficultyLevels');
                     <span class="level-name">MEDIUM</span>
                     <span class="level-description">Time to get busy!</span>
                     <span class="level-detail">
-                        ⏱ <?= (int)$levels['medium']['time'] ?> Seconds · ❤️ <?= (int)$levels['medium']['lives'] ?> Lives
+                         <?= (int)$levels['medium']['time'] ?> Seconds
                     </span>
                 </button>
 
@@ -63,7 +63,7 @@ $levels = load_json('difficultyLevels');
                     <span class="level-name">DIFFICULT</span>
                     <span class="level-description">Ready for the challenge?</span>
                     <span class="level-detail">
-                        ⏱ <?= (int)$levels['difficult']['time'] ?> Seconds · ❤️ <?= (int)$levels['difficult']['lives'] ?> Lives
+                         <?= (int)$levels['difficult']['time'] ?> Seconds 
                     </span>
                 </button>
             </div>
