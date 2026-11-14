@@ -485,10 +485,6 @@ a {
     text-align: center;
     box-shadow: 0 15px 45px rgba(17, 48, 83, 0.25);
 }
-.game-over-icon {
-    margin-bottom: 8px;
-    font-size: 55px;
-}
 .game-over-card h2 {
     margin: 0 0 10px;
     color: #6256a5;

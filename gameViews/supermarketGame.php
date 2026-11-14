@@ -41,7 +41,7 @@ $gameConfig = ['difficulty' => $levels[$difficulty], 'products' => load_json('st
     <script src="../gameScripts/gameRendering/supermarketCanvasRenderer.js" defer></script>
     <script src="../gameScripts/userInterface/gameplayUiController.js" defer></script>
 
-    <script src="../gameScripts/gameplayLogic/gameplayCoordinator.js" defer></script>
+    <script src="../gameScripts/gameplayLogic/gameplayCoordinator.js?v=<?= filemtime(__DIR__ . '/../gameScripts/gameplayLogic/gameplayCoordinator.js') ?>" defer></script>
 </head>
 
 <body>
@@ -161,7 +161,6 @@ $gameConfig = ['difficulty' => $levels[$difficulty], 'products' => load_json('st
         <!-- Game over overlay -->
         <div id="gameOverOverlay" class="game-over-overlay hidden">
             <div class="game-over-card">
-                <div id="gameOverIcon" class="game-over-icon">🎉</div>
                 <h2 id="gameOverTitle">Great Job!</h2>
                 <p id="gameOverText">Thank you for playing Mini Mart.</p>
 

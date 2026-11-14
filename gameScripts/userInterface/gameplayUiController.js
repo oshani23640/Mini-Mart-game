@@ -22,7 +22,6 @@ class GameplayUiController {
         this.playAgainButton = document.getElementById("playAgainButton");
 
         this.gameOverOverlay = document.getElementById("gameOverOverlay");
-        this.gameOverIcon = document.getElementById("gameOverIcon");
         this.gameOverTitle = document.getElementById("gameOverTitle");
         this.gameOverText = document.getElementById("gameOverText");
         this.finalScoreElement = document.getElementById("finalScore");
@@ -227,9 +226,6 @@ class GameplayUiController {
         if (!this.gameOverOverlay) return;
         this.gameOverOverlay.classList.remove("hidden");
 
-        if (this.gameOverIcon) {
-            this.gameOverIcon.textContent = won ? "🎉" : "";
-        }
         if (this.gameOverTitle) {
             this.gameOverTitle.textContent = won ? "Supermarket Superstar!" : "Game Over!";
         }
