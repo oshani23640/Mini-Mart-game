@@ -64,7 +64,7 @@ function submitPuzzleAnswer(val) {
     const { correct } = puzzleChallengeService.validateAnswer(val);
 
     if (correct) {
-        ui.setPuzzleFeedback("🎉 Correct! Advancing to next customer...", false, true);
+        ui.setPuzzleFeedback(" Correct! Advancing to next customer..", false, true);
         if (ui.submitPuzzleBtn) ui.submitPuzzleBtn.disabled = true;
 
         setTimeout(() => {
