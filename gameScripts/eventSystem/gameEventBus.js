@@ -1,6 +1,6 @@
 // Event names and a small event bus
 
-// Event names
+
 const GameEvents = Object.freeze({
 
     // Game end

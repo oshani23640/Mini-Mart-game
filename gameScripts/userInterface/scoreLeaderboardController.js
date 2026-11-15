@@ -64,7 +64,7 @@ async function loadScores() {
         });
 
     } catch (error) {
-        emptyMsg.textContent = "Unable to load scores. Please check the server connection.";
+        emptyMsg.textContent = "Unable to load scores.";
         emptyMsg.hidden = false;
         emptyMsg.style.display = "block";
     }
