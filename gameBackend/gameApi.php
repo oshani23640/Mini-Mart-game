@@ -44,7 +44,7 @@ try {
 } catch (PDOException $e) {
     respond(500, [
         'success' => false,
-        'message' => 'Database connection failed. Check WAMP and database settings.'
+        'message' => 'Database connection failed.'
     ]);
 }
 
@@ -89,7 +89,7 @@ if ($action === 'signup' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($e->getCode() === '23000') {
             respond(409, [
                 'success' => false,
-                'message' => 'That username is already registered.'
+                'message' => 'Username is already registered.'
             ]);
         }
 

@@ -1,4 +1,4 @@
-// Player Registration Form Controller
+// Player Registration 
 
 "use strict";
 
@@ -46,7 +46,7 @@ if (signupForm) {
                 throw new Error(result.message || "Sign up failed.");
             }
 
-            alert("Your account has been created successfully! Please log in.");
+            alert("Account created successfully! ");
             window.location.href = "playerLogin.php";
 
         } catch (error) {
