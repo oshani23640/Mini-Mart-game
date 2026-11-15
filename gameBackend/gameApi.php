@@ -1,5 +1,4 @@
 <?php
-// REST API endpoint for authentication and score operations.
 
 require_once __DIR__ . '/sessionManager.php';
 require_once __DIR__ . '/databaseConfig.php';

@@ -1,5 +1,5 @@
 <?php
-// Database configuration and JSON data loader.
+// Database configuration 
 
 const DB_HOST = 'localhost';
 const DB_NAME = 'minimart_db';
