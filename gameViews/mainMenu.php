@@ -13,7 +13,10 @@
 </head>
 
 <body>
-    <script>window.MINIMART_USERNAME = <?= json_encode($_SESSION['username'], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT) ?>;</script>
+    <script>
+    window.MINIMART_USERNAME = <?= json_encode($_SESSION['username'], 
+    JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT) ?>;
+    </script>
 
     <main class="menu-card">
         <h1>MINI MART</h1>

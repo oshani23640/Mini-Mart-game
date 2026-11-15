@@ -15,16 +15,15 @@
 </head>
 
 <body>
-    <script>window.MINIMART_USERNAME = <?= json_encode($_SESSION['username'], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT) ?>;</script>
+    <script>
+    window.MINIMART_USERNAME = <?= json_encode($_SESSION['username'], 
+    JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT) ?>;
+    </script>
 
     <main class="difficulty-container">
         <section class="difficulty-card">
             <h1>MINI MART</h1>
-            <h2>Score History 🏆</h2>
-
-            <p class="description">
-                Check out your top shopping achievements and customer service masteries!
-            </p>
+            <h2>Score History</h2>
 
             <div class="scores-table-wrapper">
                 <table class="scores-table" id="scoresTable">
@@ -44,7 +43,7 @@
                 </table>
 
                 <div id="emptyMessage" class="empty-scores" hidden>
-                    No games recorded yet! Go play and claim your spot on the leaderboard!
+                    No games recorded yet! 
                 </div>
             </div>
 

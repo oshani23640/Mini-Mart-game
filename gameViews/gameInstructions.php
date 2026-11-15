@@ -32,7 +32,7 @@
                 <div class="instruction-step">
                     <div class="step-number">01</div>
                     <div class="step-content">
-                        <h3>🎯 Your Mission</h3>
+                        <h3>Your Mission</h3>
                         <p>
                             Customers will visit your mini mart with their shopping orders.
                             Your job is to collect the correct products from the shelves
@@ -45,7 +45,7 @@
                 <div class="instruction-step">
                     <div class="step-number">02</div>
                     <div class="step-content">
-                        <h3>🎮 Move Around</h3>
+                        <h3>Move Around</h3>
                         <p>
                             Explore your mini mart using the
                             <span class="key-badge">W A S D</span>
@@ -63,7 +63,7 @@
                 <div class="instruction-step">
                     <div class="step-number">03</div>
                     <div class="step-content">
-                        <h3>🧺 Collect Products</h3>
+                        <h3>Collect Products</h3>
                         <p>
                             Walk close to the product shelves to collect the
                             items requested by your customers.
@@ -78,7 +78,7 @@
                 <div class="instruction-step">
                     <div class="step-number">04</div>
                     <div class="step-content">
-                        <h3>🐟 Fish Challenge</h3>
+                        <h3>Fish Challenge</h3>
                         <p>
                             After completing a customer's shopping order,
                             a Fish Game challenge will appear.
@@ -92,7 +92,7 @@
                 <div class="instruction-step">
                     <div class="step-number">05</div>
                     <div class="step-content">
-                        <h3>⏰ Beat the Timer</h3>
+                        <h3>Beat the Timer</h3>
                         <p>
                             Keep an eye on the countdown timer while serving
                             your customers. Complete as many shopping orders
