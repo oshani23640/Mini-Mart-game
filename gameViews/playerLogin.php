@@ -31,8 +31,7 @@ if (!empty($_SESSION['user_id'])) {
             <img
                 src="../gameAssets/authHeroBanner.jpg"
                 alt="Mini Mart Shop"
-                class="auth-background-image"
-            >
+                class="auth-background-image">
 
             <div class="auth-box">
 
@@ -47,8 +46,7 @@ if (!empty($_SESSION['user_id'])) {
                         type="text"
                         id="username"
                         placeholder="Enter username"
-                        required
-                    >
+                        required>
 
                     <label for="password">Password</label>
 
@@ -56,8 +54,7 @@ if (!empty($_SESSION['user_id'])) {
                         type="password"
                         id="password"
                         placeholder="Enter password"
-                        required
-                    >
+                        required>
 
                     <button type="submit">Login</button>
 
