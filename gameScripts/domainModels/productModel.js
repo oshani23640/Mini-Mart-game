@@ -1,7 +1,7 @@
 // Shop products and the product catalogue
 
 class Product {
-    // Creates a product with its shelf position
+
     constructor(id, name, icon, shelfX, shelfY) {
         this.id = id;
         this.name = name;
@@ -10,13 +10,14 @@ class Product {
         this.y = shelfY;
     }
 
-    // Checks if the player is close enough to collect this product
     isWithinReach(px, py, reachDistance = 48) {
         return Math.hypot(this.x - px, this.y - py) <= reachDistance;
     }
 }
 
+
 class ProductCatalog {
+
     constructor() {
         // All products in the shop
         this.items = [];
@@ -39,14 +40,17 @@ class ProductCatalog {
 
         for (const product of this.items) {
             const dist = Math.hypot(product.x - x, product.y - y);
+
             if (dist < minDistance && dist <= maxDistance) {
                 minDistance = dist;
                 nearest = product;
             }
         }
+
         return nearest;
     }
 }
+
 
 // Shared product catalogue
 const productCatalog = new ProductCatalog();

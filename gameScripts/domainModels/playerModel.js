@@ -1,7 +1,8 @@
 // Stores the player's position, movement and basket
 
+// Creates the player at a start position
 class Player {
-    // Creates the player at a start position
+
     constructor(startX = 75, startY = 480, speed = 4.0) {
         this.startX = startX;
         this.startY = startY;
@@ -11,8 +12,6 @@ class Player {
         this.height = 36;
         this.baseSpeed = speed;
         this.direction = "down";
-
-        // IDs of collected products
         this.basket = [];
     }
 
@@ -24,7 +23,7 @@ class Player {
         this.basket = [];
     }
 
-    // Moves the player from the pressed keys if the move is allowed
+    // Moves the player
     updateMovement(keys, canMoveValidator) {
         let dx = 0;
         let dy = 0;
@@ -36,14 +35,17 @@ class Player {
             dx -= currentSpeed;
             this.direction = "left";
         }
+
         if (keys.ArrowRight || keys.d || keys.D) {
             dx += currentSpeed;
             this.direction = "right";
         }
+
         if (keys.ArrowUp || keys.w || keys.W) {
             dy -= currentSpeed;
             this.direction = "up";
         }
+
         if (keys.ArrowDown || keys.s || keys.S) {
             dy += currentSpeed;
             this.direction = "down";
@@ -63,6 +65,7 @@ class Player {
         if (canMoveValidator(nextX, this.y)) {
             this.x = nextX;
         }
+
         if (canMoveValidator(this.x, nextY)) {
             this.y = nextY;
         }
@@ -71,7 +74,11 @@ class Player {
     // Adds a product to the basket
     addToBasket(productId) {
         this.basket.push(productId);
-        eventBus.emit(GameEvents.ITEM_PICKED, { productId, basketCount: this.basket.length });
+
+        eventBus.emit(GameEvents.ITEM_PICKED, {
+            productId,
+            basketCount: this.basket.length
+        });
     }
 
     // Empties the basket

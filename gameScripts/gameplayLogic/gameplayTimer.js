@@ -3,6 +3,7 @@
 "use strict";
 
 class GameplayTimer {
+
     constructor() {
         this.intervalId = null;
         this.isPaused = false;
@@ -46,6 +47,5 @@ class GameplayTimer {
 }
 
 const gameplayTimer = new GameplayTimer();
-// Backward compatibility alias
 const gameTimer = gameplayTimer;
 const GameTimer = GameplayTimer;

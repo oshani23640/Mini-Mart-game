@@ -1,12 +1,18 @@
 <?php
+
 require_once __DIR__ . '/../gameBackend/sessionManager.php';
+
+// Check whether the player is already logged in
 if (!empty($_SESSION['user_id'])) {
     header('Location: mainMenu.php');
     exit;
 }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,8 +23,11 @@ if (!empty($_SESSION['user_id'])) {
 </head>
 
 <body>
+
     <div class="auth-page">
+
         <div class="auth-container">
+
             <img
                 src="../gameAssets/authHeroBanner.jpg"
                 alt="Mini Mart Shop"
@@ -26,11 +35,14 @@ if (!empty($_SESSION['user_id'])) {
             >
 
             <div class="auth-box">
+
                 <h1>Mini Mart</h1>
                 <h2>Login</h2>
 
                 <form id="loginForm">
+
                     <label for="username">Username</label>
+
                     <input
                         type="text"
                         id="username"
@@ -39,6 +51,7 @@ if (!empty($_SESSION['user_id'])) {
                     >
 
                     <label for="password">Password</label>
+
                     <input
                         type="password"
                         id="password"
@@ -47,16 +60,19 @@ if (!empty($_SESSION['user_id'])) {
                     >
 
                     <button type="submit">Login</button>
+
                 </form>
 
                 <p>
                     Don't have an account?
                     <a href="playerSignup.php">Sign Up</a>
                 </p>
+
             </div>
         </div>
     </div>
 
     <script src="../gameScripts/playerAuthentication/playerLogin.js"></script>
+
 </body>
 </html>

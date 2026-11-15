@@ -1,9 +1,8 @@
 // Stores score, time, lives and game status
 
 class GameState {
-    // Creates the state from the difficulty settings
-    constructor(difficultyConfig = {}) 
-    {
+
+    constructor(difficultyConfig = {}) {
         this.difficulty = difficultyConfig.name || "Easy";
         this.initialTime = difficultyConfig.time || 90;
         this.initialLives = difficultyConfig.lives || 3;
@@ -22,12 +21,11 @@ class GameState {
         this.isGameOver = false;
         this.isPuzzleModalOpen = false;
 
-       
         this.currentCustomer = null;
     }
 
+    // Restore the starting stats
     reset() {
-        // Restore the starting stats 
         this.score = 0;
         this.time = this.initialTime;
         this.lives = this.initialLives;
@@ -49,9 +47,10 @@ class GameState {
 
     // Update the life counter and end the game when none remain
     deductLife() {
-        
         this.lives -= 1;
+
         eventBus.emit(GameEvents.LIVES_CHANGED, this.lives);
+
         if (this.lives <= 0) {
             this.lives = 0;
             this.endGame(false, "Out of Lives!");
@@ -59,11 +58,12 @@ class GameState {
     }
 
     // Freeze gameplay and publish the final result once
-    endGame(won, reason = "") 
-    {
+    endGame(won, reason = "") {
         if (this.isGameOver) return;
+
         this.isGameOver = true;
         this.running = false;
+
         eventBus.emit(GameEvents.GAME_OVER, { won, score: this.score, reason });
     }
 }

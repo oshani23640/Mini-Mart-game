@@ -5,7 +5,9 @@
 const VALID_DIFFICULTIES = ["easy", "medium", "difficult"];
 
 function selectDifficulty(level) {
+
     if (!VALID_DIFFICULTIES.includes(level)) return;
+
     // Pass the selected level to the game screen
     window.location.href = "supermarketGame.php?difficulty=" + encodeURIComponent(level);
 }

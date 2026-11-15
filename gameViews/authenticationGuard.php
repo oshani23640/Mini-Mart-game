@@ -1,4 +1,5 @@
 <?php
+
 // Verifies player authentication session before rendering protected views.
 require_once __DIR__ . '/../gameBackend/sessionManager.php';
 

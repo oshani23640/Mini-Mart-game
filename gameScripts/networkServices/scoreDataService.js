@@ -3,21 +3,26 @@
 "use strict";
 
 class ScoreDataService {
+
     static BASE_URL = "../gameBackend/gameApi.php";
 
     static async saveScore(score, difficulty) {
         // Send the completed game score and report server errors to the caller
         const response = await fetch(this.BASE_URL + "?action=save_score", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json"
+            },
             credentials: "same-origin",
             body: JSON.stringify({ score, difficulty })
         });
 
         const result = await response.json();
+
         if (!response.ok || !result.success) {
             throw new Error(result.message || "Score could not be saved.");
         }
+
         return result;
     }
 
@@ -29,9 +34,11 @@ class ScoreDataService {
         });
 
         const result = await response.json();
+
         if (!response.ok || !result.success) {
             throw new Error(result.message || "Could not load scores.");
         }
+
         return result.scores || [];
     }
 
@@ -43,9 +50,11 @@ class ScoreDataService {
         });
 
         const result = await response.json();
+
         if (!response.ok || !result.success) {
             throw new Error(result.message || "Could not clear scores.");
         }
+
         return result;
     }
 }

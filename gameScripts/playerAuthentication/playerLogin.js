@@ -5,6 +5,7 @@
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
+
     loginForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
@@ -15,7 +16,9 @@ if (loginForm) {
         try {
             const response = await fetch("../gameBackend/gameApi.php?action=login", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json"
+                },
                 body: JSON.stringify({ username, password }),
                 credentials: "same-origin"
             });
@@ -27,6 +30,7 @@ if (loginForm) {
             }
 
             window.location.href = "mainMenu.php";
+
         } catch (error) {
             alert(error.message || "Unable to connect to the server.");
         }

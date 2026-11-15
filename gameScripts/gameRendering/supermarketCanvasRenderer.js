@@ -3,6 +3,7 @@
 "use strict";
 
 class SupermarketCanvasRenderer {
+
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
@@ -83,23 +84,64 @@ class SupermarketCanvasRenderer {
     }
 
     drawCheckout(checkoutBox, registerPos, currentCustomer, isNearRegister) {
-        this.drawRoundedRect(checkoutBox.x + 3, checkoutBox.y + 4, checkoutBox.width, checkoutBox.height, 8, "#b3c1cd");
-        this.drawRoundedRect(checkoutBox.x, checkoutBox.y, checkoutBox.width, checkoutBox.height, 8, "#5d7894");
-        this.drawRoundedRect(checkoutBox.x + 6, checkoutBox.y + 6, checkoutBox.width - 12, 20, 4, "#8da8c4");
+        this.drawRoundedRect(
+            checkoutBox.x + 3,
+            checkoutBox.y + 4,
+            checkoutBox.width,
+            checkoutBox.height,
+            8,
+            "#b3c1cd"
+        );
+
+        this.drawRoundedRect(
+            checkoutBox.x,
+            checkoutBox.y,
+            checkoutBox.width,
+            checkoutBox.height,
+            8,
+            "#5d7894"
+        );
+
+        this.drawRoundedRect(
+            checkoutBox.x + 6,
+            checkoutBox.y + 6,
+            checkoutBox.width - 12,
+            20,
+            4,
+            "#8da8c4"
+        );
 
         this.ctx.fillStyle = "#ffffff";
         this.ctx.font = "bold 10px Arial";
         this.ctx.textAlign = "center";
-        this.ctx.fillText("CHECKOUT", checkoutBox.x + checkoutBox.width / 2, checkoutBox.y + 19);
+        this.ctx.fillText(
+            "CHECKOUT",
+            checkoutBox.x + checkoutBox.width / 2,
+            checkoutBox.y + 19
+        );
 
         // Register terminal
-        this.drawRoundedRect(checkoutBox.x + 12, checkoutBox.y + 35, 30, 20, 4, "#334155");
+        this.drawRoundedRect(
+            checkoutBox.x + 12,
+            checkoutBox.y + 35,
+            30,
+            20,
+            4,
+            "#334155"
+        );
+
         this.ctx.fillStyle = "#38bdf8";
-        this.ctx.fillRect(checkoutBox.x + 15, checkoutBox.y + 38, 24, 12);
+        this.ctx.fillRect(
+            checkoutBox.x + 15,
+            checkoutBox.y + 38,
+            24,
+            12
+        );
 
         // Customer avatar at checkout
         this.ctx.font = "28px Arial";
         this.ctx.textAlign = "center";
+
         const avatar = currentCustomer ? currentCustomer.avatar : "👩";
         this.ctx.fillText(avatar, registerPos.x, registerPos.y);
 
@@ -143,7 +185,9 @@ class SupermarketCanvasRenderer {
 
         // Face & Eyes
         this.ctx.fillStyle = "#2c1d11";
+
         let eyeOffsetX = 0;
+
         if (player.direction === "left") eyeOffsetX = -3;
         if (player.direction === "right") eyeOffsetX = 3;
 
@@ -158,6 +202,7 @@ class SupermarketCanvasRenderer {
     render(player, products, currentCustomer, isNearRegister, checkoutBox, registerPos) {
         // Draw the scene from its background up through the player
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
         this.drawFloor();
         this.drawShelves();
         this.drawProducts(products, player);

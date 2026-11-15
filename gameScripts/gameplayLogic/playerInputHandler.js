@@ -3,6 +3,7 @@
 "use strict";
 
 class PlayerInputHandler {
+
     constructor() {
         this.keys = {};
         this.onInteract = null;
@@ -21,6 +22,7 @@ class PlayerInputHandler {
             window.addEventListener("keydown", this.handleKeyDown);
             window.addEventListener("keyup", this.handleKeyUp);
             window.addEventListener("blur", this.handleBlur);
+
             this.isListening = true;
         }
     }
@@ -62,6 +64,7 @@ class PlayerInputHandler {
         window.removeEventListener("keydown", this.handleKeyDown);
         window.removeEventListener("keyup", this.handleKeyUp);
         window.removeEventListener("blur", this.handleBlur);
+
         this.isListening = false;
         this.reset();
     }

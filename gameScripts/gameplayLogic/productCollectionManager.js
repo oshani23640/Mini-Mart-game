@@ -3,11 +3,13 @@
 "use strict";
 
 class ProductCollectionManager {
+
     // Collect only products in the active order and refresh the order display
     static tryCollectProduct(player, gameState) {
         if (!gameState.running || gameState.isGameOver) return null;
 
         const product = productCatalog.getNearest(player.x, player.y, 50);
+
         if (!product) return null;
 
         if (!gameState.currentCustomer) return null;

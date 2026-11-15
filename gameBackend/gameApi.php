@@ -17,6 +17,7 @@ function input_data(): array
 {
     $raw = file_get_contents('php://input');
     $data = json_decode($raw ?: '{}', true);
+
     return is_array($data) ? $data : [];
 }
 
@@ -36,7 +37,7 @@ try {
         DB_USER,
         DB_PASS,
         [
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]
     );
@@ -48,10 +49,12 @@ try {
 }
 
 $action = $_GET['action'] ?? '';
-$data   = input_data();
+$data = input_data();
+
 
 // Sign up
 if ($action === 'signup' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $username = trim((string)($data['username'] ?? ''));
     $password = (string)($data['password'] ?? '');
 
@@ -71,6 +74,7 @@ if ($action === 'signup' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         $stmt = $pdo->prepare('INSERT INTO users (username, password_hash) VALUES (?, ?)');
+
         $stmt->execute([
             $username,
             password_hash($password, PASSWORD_DEFAULT)
@@ -79,13 +83,16 @@ if ($action === 'signup' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         respond(201, [
             'success' => true
         ]);
+
     } catch (PDOException $e) {
+
         if ($e->getCode() === '23000') {
             respond(409, [
                 'success' => false,
                 'message' => 'That username is already registered.'
             ]);
         }
+
         respond(500, [
             'success' => false,
             'message' => 'Could not create the account.'
@@ -93,12 +100,15 @@ if ($action === 'signup' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+
 // Log in
 if ($action === 'login' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $username = trim((string)($data['username'] ?? ''));
     $password = (string)($data['password'] ?? '');
 
     $stmt = $pdo->prepare('SELECT id, username, password_hash FROM users WHERE username = ? LIMIT 1');
+
     $stmt->execute([$username]);
     $account = $stmt->fetch();
 
@@ -110,21 +120,26 @@ if ($action === 'login' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     session_regenerate_id(true);
-    $_SESSION['user_id']  = (int)$account['id'];
+
+    $_SESSION['user_id'] = (int)$account['id'];
     $_SESSION['username'] = $account['username'];
 
     respond(200, [
-        'success'  => true,
+        'success' => true,
         'username' => $account['username']
     ]);
 }
 
+
 // Log out
 if ($action === 'logout' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $_SESSION = [];
 
     if (ini_get('session.use_cookies')) {
+
         $params = session_get_cookie_params();
+
         setcookie(
             session_name(),
             '',
@@ -143,16 +158,21 @@ if ($action === 'logout' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     ]);
 }
 
+
 // Save score
 if ($action === 'save_score' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+
     require_login();
 
-    $score      = filter_var($data['score'] ?? null, FILTER_VALIDATE_INT);
+    $score = filter_var($data['score'] ?? null, FILTER_VALIDATE_INT);
     $difficulty = strtolower((string)($data['difficulty'] ?? ''));
-    $levels     = load_json('difficultyLevels');
+    $levels = load_json('difficultyLevels');
 
-    $level    = $levels[$difficulty] ?? null;
-    $maxScore = $level ? $level['targetOrders'] * ($level['pointsPerOrder'] + $level['puzzleBonus']) : 0;
+    $level = $levels[$difficulty] ?? null;
+
+    $maxScore = $level
+        ? $level['targetOrders'] * ($level['pointsPerOrder'] + $level['puzzleBonus'])
+        : 0;
 
     if ($score === false || $score < 0 || $level === null || $score > $maxScore) {
         respond(422, [
@@ -162,6 +182,7 @@ if ($action === 'save_score' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $stmt = $pdo->prepare('INSERT INTO scores (user_id, score, difficulty) VALUES (?, ?, ?)');
+
     $stmt->execute([
         $_SESSION['user_id'],
         $score,
@@ -173,8 +194,10 @@ if ($action === 'save_score' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     ]);
 }
 
+
 // Get scores
 if ($action === 'get_scores' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+
     require_login();
 
     $stmt = $pdo->prepare(
@@ -184,25 +207,30 @@ if ($action === 'get_scores' && $_SERVER['REQUEST_METHOD'] === 'GET') {
          WHERE s.user_id = ?
          ORDER BY s.score DESC, s.created_at DESC'
     );
+
     $stmt->execute([$_SESSION['user_id']]);
 
     respond(200, [
         'success' => true,
-        'scores'  => $stmt->fetchAll()
+        'scores' => $stmt->fetchAll()
     ]);
 }
 
+
 // Clear scores
 if ($action === 'clear_scores' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+
     require_login();
 
     $stmt = $pdo->prepare('DELETE FROM scores WHERE user_id = ?');
+
     $stmt->execute([$_SESSION['user_id']]);
 
     respond(200, [
         'success' => true
     ]);
 }
+
 
 respond(404, [
     'success' => false,

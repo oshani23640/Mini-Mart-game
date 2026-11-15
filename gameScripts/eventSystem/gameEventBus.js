@@ -2,6 +2,7 @@
 
 // Event names
 const GameEvents = Object.freeze({
+
     // Game end
     GAME_OVER: "game:over",
 
@@ -24,7 +25,9 @@ const GameEvents = Object.freeze({
     TIME_TICK: "stats:time_tick"
 });
 
+
 class EventBus {
+
     constructor() {
         // Maps each event name to its listeners
         this.listeners = new Map();
@@ -35,9 +38,9 @@ class EventBus {
         if (!this.listeners.has(eventName)) {
             this.listeners.set(eventName, new Set());
         }
+
         this.listeners.get(eventName).add(callback);
 
-        // Returns an unsubscribe function
         return () => this.off(eventName, callback);
     }
 
@@ -61,6 +64,7 @@ class EventBus {
         }
     }
 }
+
 
 // Shared event bus
 const eventBus = new EventBus();

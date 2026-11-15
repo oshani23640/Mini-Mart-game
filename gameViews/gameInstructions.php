@@ -1,6 +1,8 @@
 <?php require_once __DIR__ . '/authenticationGuard.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,27 +11,37 @@
     <link rel="stylesheet" href="../gameStyles/globalStyles.css">
     <link rel="stylesheet" href="../gameStyles/difficultyStyles.css">
     <link rel="stylesheet" href="../gameStyles/instructionsStyles.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Skranji:wght@400;700&family=Ultra&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
     <script>
-    window.MINIMART_USERNAME = <?= json_encode($_SESSION['username'], 
-    JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT) ?>;
+        window.MINIMART_USERNAME = <?= json_encode(
+            $_SESSION['username'],
+            JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT
+        ) ?>;
     </script>
 
     <main class="difficulty-container">
+
         <section class="difficulty-card instructions-card">
+
             <h1>MINI MART</h1>
             <h2>How to Play</h2>
 
             <div class="instruction-content">
+
                 <div class="instruction-step">
                     <div class="step-number">01</div>
+
                     <div class="step-content">
                         <h3>Your Mission</h3>
+
                         <p>
                             Customers will visit your mini mart with their shopping orders.
                             Your job is to collect the correct products from the shelves
@@ -41,8 +53,10 @@
 
                 <div class="instruction-step">
                     <div class="step-number">02</div>
+
                     <div class="step-content">
                         <h3>Move Around</h3>
+
                         <p>
                             Explore your mini mart using the
                             <span class="key-badge">W A S D</span>
@@ -59,8 +73,10 @@
 
                 <div class="instruction-step">
                     <div class="step-number">03</div>
+
                     <div class="step-content">
                         <h3>Collect Products</h3>
+
                         <p>
                             Walk close to the product shelves to collect the
                             items requested by your customers.
@@ -74,8 +90,10 @@
 
                 <div class="instruction-step">
                     <div class="step-number">04</div>
+
                     <div class="step-content">
                         <h3>Fish Challenge</h3>
+
                         <p>
                             After completing a customer's shopping order,
                             a Fish Game challenge will appear.
@@ -88,8 +106,10 @@
 
                 <div class="instruction-step">
                     <div class="step-number">05</div>
+
                     <div class="step-content">
                         <h3>Beat the Timer</h3>
+
                         <p>
                             Keep an eye on the countdown timer while serving
                             your customers. Complete as many shopping orders
@@ -98,12 +118,15 @@
                         </p>
                     </div>
                 </div>
+
             </div>
 
             <button type="button" class="back-button" onclick="location.href='mainMenu.php'">
                 Back to Menu
             </button>
+
         </section>
     </main>
+
 </body>
 </html>

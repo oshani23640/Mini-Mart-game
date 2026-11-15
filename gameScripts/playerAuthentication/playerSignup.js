@@ -5,6 +5,7 @@
 const signupForm = document.getElementById("signupForm");
 
 if (signupForm) {
+
     signupForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
@@ -32,7 +33,9 @@ if (signupForm) {
         try {
             const response = await fetch("../gameBackend/gameApi.php?action=signup", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json"
+                },
                 body: JSON.stringify({ username, password }),
                 credentials: "same-origin"
             });
@@ -45,6 +48,7 @@ if (signupForm) {
 
             alert("Your account has been created successfully! Please log in.");
             window.location.href = "playerLogin.php";
+
         } catch (error) {
             alert(error.message || "Unable to connect to the server.");
         }

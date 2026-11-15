@@ -3,12 +3,13 @@
 "use strict";
 
 class CustomerOrderManager {
+
     static CUSTOMER_TEMPLATES = [
         { name: "Emma", avatar: "👩" },
         { name: "Noah", avatar: "👨" },
         { name: "Lily", avatar: "👧" },
         { name: "Oliver", avatar: "👦" },
-        { name: "Mia", avatar: "👩‍🦰"},
+        { name: "Mia", avatar: "👩‍🦰" },
         { name: "Alex", avatar: "🧑" }
     ];
 
@@ -19,11 +20,13 @@ class CustomerOrderManager {
     // Choose a different customer, generate their order, and notify the UI
     spawnNextCustomer(gameState) {
         let index;
+
         do {
             index = Math.floor(Math.random() * CustomerOrderManager.CUSTOMER_TEMPLATES.length);
         } while (CustomerOrderManager.CUSTOMER_TEMPLATES.length > 1 && index === this.previousIndex);
 
         this.previousIndex = index;
+
         const template = CustomerOrderManager.CUSTOMER_TEMPLATES[index];
 
         const customer = new Customer(template.name, template.avatar, template.message);
@@ -40,11 +43,12 @@ class CustomerOrderManager {
     // Award order points, clear the basket, and continue or finish the game
     fulfillCustomerOrder(gameState, player, bonusPoints = 0) {
         const totalPoints = gameState.pointsPerOrder + bonusPoints;
+
         gameState.addScore(totalPoints);
 
         const servedCustomer = gameState.currentCustomer;
-        player.emptyBasket();
 
+        player.emptyBasket();
         gameState.ordersCompleted++;
 
         eventBus.emit(GameEvents.CUSTOMER_SERVED, {
@@ -58,6 +62,7 @@ class CustomerOrderManager {
                 true,
                 "Congratulations! You completed " + gameState.targetOrders + " customer orders!"
             );
+
             return;
         }
 
@@ -65,7 +70,7 @@ class CustomerOrderManager {
     }
 }
 
+
 const customerOrderManager = new CustomerOrderManager();
-// Backward compatibility alias
 const customerManager = customerOrderManager;
 const CustomerManager = CustomerOrderManager;

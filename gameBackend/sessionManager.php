@@ -1,11 +1,12 @@
 <?php
 
-if (session_status() !== PHP_SESSION_ACTIVE) 
-    {
+if (session_status() !== PHP_SESSION_ACTIVE) {
+
     session_set_cookie_params([
-        'httponly' => true, //option to prevent JavaScript from accessing the cookie
+        'httponly' => true, // option to prevent JavaScript from accessing the cookie
         'samesite' => 'Lax', // additional protection against certain cross-site requests
-        'secure'   => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
+        'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
     ]);
+
     session_start();
 }

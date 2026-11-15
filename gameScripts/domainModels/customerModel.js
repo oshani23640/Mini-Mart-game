@@ -1,6 +1,7 @@
 // Customer details and order tracking
 
 class OrderItem {
+
     // One product and the quantity wanted
     constructor(productId, quantity) {
         this.productId = productId;
@@ -13,12 +14,15 @@ class OrderItem {
     }
 }
 
+
 class Customer {
+
     // Creates a customer with a name, avatar and message
     constructor(name, avatar, message) {
         this.name = name;
         this.avatar = avatar;
         this.message = message;
+
         // Items requested by this customer
         this.order = [];
     }
@@ -26,6 +30,7 @@ class Customer {
     // Builds a random order
     generateOrder(availableProducts, orderSize = 2) {
         this.order = [];
+
         const shuffled = [...availableProducts].sort(() => Math.random() - 0.5);
         const selected = shuffled.slice(0, Math.min(orderSize, shuffled.length));
 
