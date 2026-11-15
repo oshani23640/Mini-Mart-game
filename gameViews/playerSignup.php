@@ -47,12 +47,10 @@ if (!empty($_SESSION['user_id'])) {
                     >
 
                     <label for="confirmPassword">Confirm Password</label>
-                    <input
-                        type="password"
+                    <input type="password"
                         id="confirmPassword"
                         placeholder="Confirm password"
-                        required
-                    >
+                        required>
 
                     <button type="submit">Sign Up</button>
                 </form>

@@ -41,7 +41,9 @@ $gameConfig = ['difficulty' => $levels[$difficulty], 'products' => load_json('st
     <script src="../gameScripts/gameRendering/supermarketCanvasRenderer.js" defer></script>
     <script src="../gameScripts/userInterface/gameplayUiController.js" defer></script>
 
-    <script src="../gameScripts/gameplayLogic/gameplayCoordinator.js?v=<?= filemtime(__DIR__ . '/../gameScripts/gameplayLogic/gameplayCoordinator.js') ?>" defer></script>
+    <script src="../gameScripts/gameplayLogic/gameplayCoordinator.js?v=<?= filemtime(__DIR__ . '/../gameScripts/gameplayLogic/gameplayCoordinator.js') ?>" defer>
+        
+    </script>
 </head>
 
 <body>
@@ -191,7 +193,7 @@ $gameConfig = ['difficulty' => $levels[$difficulty], 'products' => load_json('st
 
                 <div class="puzzle-controls">
                     <label for="puzzleAnswerInput">
-                        How many fish do you see? (0 - 9):
+                        How many fish do you see?:
                     </label>
 
                     <div class="puzzle-input-row">
@@ -203,12 +205,8 @@ $gameConfig = ['difficulty' => $levels[$difficulty], 'products' => load_json('st
                             placeholder="0"
                         />
 
-                        <button
-                            type="button"
-                            id="submitPuzzleBtn"
-                            class="submit-puzzle-btn"
-                        >
-                            Ring Up Order
+                        <button type="button" id="submitPuzzleBtn" class="submit-puzzle-btn">
+                            Next Order
                         </button>
                     </div>
 

@@ -20,18 +20,15 @@ $levels = load_json('difficultyLevels');
 </head>
 
 <body>
-    <script>window.MINIMART_USERNAME = <?= json_encode($_SESSION['username'], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT) ?>;</script>
+    <script>
+    window.MINIMART_USERNAME = <?= json_encode($_SESSION['username'], 
+    JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT) ?>;
+    </script>
 
     <main class="difficulty-container">
         <section class="difficulty-card">
             <h1>MINI MART</h1>
             <h2>Choose Your Challenge!</h2>
-
-            <p class="description">
-            
-                Choose your difficulty, serve your customers,
-                collect points, and become a shopping superstar!
-            </p>
 
             <div class="difficulty-options">
                 <button
@@ -39,10 +36,8 @@ $levels = load_json('difficultyLevels');
                     class="difficulty-button easy"
                     onclick="selectDifficulty('easy')">
                     <span class="level-name">EASY</span>
-                    <span class="level-description">Take it easy!</span>
-                    <span class="level-detail">
-                         <?= (int)$levels['easy']['time'] ?> Seconds 
-                    </span>
+                    
+        
                 </button>
 
                 <button
@@ -50,10 +45,8 @@ $levels = load_json('difficultyLevels');
                     class="difficulty-button medium"
                     onclick="selectDifficulty('medium')">
                     <span class="level-name">MEDIUM</span>
-                    <span class="level-description">Time to get busy!</span>
-                    <span class="level-detail">
-                         <?= (int)$levels['medium']['time'] ?> Seconds
-                    </span>
+                    
+                    
                 </button>
 
                 <button
@@ -61,10 +54,8 @@ $levels = load_json('difficultyLevels');
                     class="difficulty-button difficult"
                     onclick="selectDifficulty('difficult')">
                     <span class="level-name">DIFFICULT</span>
-                    <span class="level-description">Ready for the challenge?</span>
-                    <span class="level-detail">
-                         <?= (int)$levels['difficult']['time'] ?> Seconds 
-                    </span>
+                    
+                    
                 </button>
             </div>
 

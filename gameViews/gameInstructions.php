@@ -15,18 +15,15 @@
 </head>
 
 <body>
-    <script>window.MINIMART_USERNAME = <?= json_encode($_SESSION['username'], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT) ?>;</script>
+    <script>
+    window.MINIMART_USERNAME = <?= json_encode($_SESSION['username'], 
+    JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT) ?>;
+    </script>
 
     <main class="difficulty-container">
         <section class="difficulty-card instructions-card">
             <h1>MINI MART</h1>
             <h2>How to Play</h2>
-
-            <p class="description">
-                Welcome to your little mini mart!
-                Get ready to become a super shopkeeper.
-                Follow these simple instructions and make every customer happy!
-            </p>
 
             <div class="instruction-content">
                 <div class="instruction-step">
