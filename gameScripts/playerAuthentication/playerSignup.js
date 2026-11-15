@@ -46,7 +46,7 @@ if (signupForm) {
                 throw new Error(result.message || "Sign up failed.");
             }
 
-            alert("Account created successfully! ");
+            alert("Account created successfully!");
             window.location.href = "playerLogin.php";
 
         } catch (error) {

@@ -1,4 +1,4 @@
-// Canvas 2D Graphics Renderer for supermarket scene, player, shelves, products, and checkout
+//  Graphics Renderer for supermarket scene, player, shelves, products, and checkout
 
 "use strict";
 
