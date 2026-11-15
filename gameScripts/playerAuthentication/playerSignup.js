@@ -50,7 +50,7 @@ if (signupForm) {
             window.location.href = "playerLogin.php";
 
         } catch (error) {
-            alert(error.message || "Unable to connect to the server.");
+            alert(error.message || "Unable to create account.");
         }
     });
 }

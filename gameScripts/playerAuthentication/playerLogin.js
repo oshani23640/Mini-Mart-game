@@ -1,4 +1,3 @@
-// Player Login Form Controller
 
 "use strict";
 
