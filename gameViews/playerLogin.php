@@ -56,7 +56,7 @@ if (!empty($_SESSION['user_id'])) {
                         placeholder="Enter password"
                         required>
 
-                    <button type="submit">Login</button>
+                    <button type="submit">Login</button>                  
 
                 </form>
 
