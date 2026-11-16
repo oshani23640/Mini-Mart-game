@@ -30,7 +30,7 @@
         <h2>Welcome Back!</h2>
 
         <p class="welcome-text">
-            Hello, <span id="player-name">Player</span>!
+            Hello, <span id="player-name">Player</span>
         </p>
 
         <div class="menu-buttons">
