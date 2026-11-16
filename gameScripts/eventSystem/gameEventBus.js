@@ -51,7 +51,7 @@ class EventBus {
         }
     }
 
-    // Calls every listener of an event
+    // triggers an event and Calls every listener of an event
     emit(eventName, payload) {
         if (this.listeners.has(eventName)) {
             this.listeners.get(eventName).forEach((callback) => {
