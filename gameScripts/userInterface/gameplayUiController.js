@@ -19,6 +19,17 @@ class GameplayUiController {
         this.basketCountElement = document.getElementById("basketCount");
         this.customerCountElement = document.getElementById("customerCount");
 
+        this.bonusModal = document.getElementById("bonusModal");
+        this.bonusLoading = document.getElementById("bonusLoading");
+        this.bonusImage = document.getElementById("bonusImage");
+        this.bonusAnswerInput = document.getElementById("bonusAnswerInput");
+        this.submitBonusBtn = document.getElementById("submitBonusBtn");
+        this.skipBonusBtn = document.getElementById("skipBonusBtn");
+        this.bonusFeedback = document.getElementById("bonusFeedback");
+
+        this.bonusToastElement = document.getElementById("bonusToast");
+        this.bonusToastTimer = null;
+
         this.restartButton = document.getElementById("restartButton");
         this.playAgainButton = document.getElementById("playAgainButton");
 
@@ -80,7 +91,9 @@ class GameplayUiController {
             this.updateBasketUI(basket.length, state.ordersCompleted, state.targetOrders);
         });
 
-        eventBus.on(GameEvents.CUSTOMER_SERVED, () => {
+        eventBus.on(GameEvents.CUSTOMER_SERVED, ({ milestoneBonus, ordersCompleted }) => {
+            if (milestoneBonus > 0) this.showBonusToast(ordersCompleted, milestoneBonus);
+
             const state = getGameState();
             const basket = getPlayerBasket();
 
@@ -178,6 +191,81 @@ class GameplayUiController {
             this.customerCountElement.textContent =
                 ordersCompleted + " / " + targetOrders + " customers";
         }
+    }
+
+    showBonusToast(ordersCompleted, bonus) {
+
+        if (!this.bonusToastElement) return;
+
+        this.bonusToastElement.textContent =
+            "Bonus " + bonus + "+";
+        this.bonusToastElement.classList.remove("hidden");
+
+        clearTimeout(this.bonusToastTimer);
+        this.bonusToastTimer = setTimeout(() => {
+            this.bonusToastElement.classList.add("hidden");
+        }, 2500);
+    }
+
+    openBonusModal() {
+
+        if (!this.bonusModal) return;
+
+        this.bonusModal.classList.remove("hidden");
+
+        if (this.bonusLoading) this.bonusLoading.style.display = "flex";
+        if (this.bonusImage) this.bonusImage.classList.add("hidden");
+        if (this.bonusAnswerInput) this.bonusAnswerInput.value = "";
+
+        this.setBonusFeedback("");
+    }
+
+    showBonusPuzzle(imageUrl) {
+
+        if (this.bonusLoading) this.bonusLoading.style.display = "none";
+
+        if (this.bonusImage) {
+            this.bonusImage.src = imageUrl;
+            this.bonusImage.classList.remove("hidden");
+        }
+
+        if (this.bonusAnswerInput) this.bonusAnswerInput.focus();
+    }
+
+    closeBonusModal() {
+
+        if (this.bonusModal) this.bonusModal.classList.add("hidden");
+    }
+
+    setBonusFeedback(text, isError = false, isSuccess = false) {
+
+        if (!this.bonusFeedback) return;
+
+        this.bonusFeedback.textContent = text;
+        this.bonusFeedback.className = "puzzle-feedback";
+
+        if (isError) this.bonusFeedback.classList.add("error");
+        if (isSuccess) this.bonusFeedback.classList.add("success");
+    }
+
+    bindBonusActions(onSubmit, onSkip) {
+
+        if (this.submitBonusBtn) {
+            this.submitBonusBtn.addEventListener("click", () => {
+                onSubmit(this.bonusAnswerInput ? this.bonusAnswerInput.value.trim() : "");
+            });
+        }
+
+        document.querySelectorAll(".bonus-numpad-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                if (!this.bonusAnswerInput) return;
+
+                this.bonusAnswerInput.value = btn.dataset.digit;
+                onSubmit(this.bonusAnswerInput.value.trim());
+            });
+        });
+
+        if (this.skipBonusBtn) this.skipBonusBtn.addEventListener("click", onSkip);
     }
 
     // Open checkout and clear any answer left from the previous challenge
@@ -282,6 +370,9 @@ class GameplayUiController {
         if (this.gameOverOverlay) this.gameOverOverlay.classList.add("hidden");
 
         this.closeCheckoutModal();
+        this.closeBonusModal();
+
+        if (this.bonusToastElement) this.bonusToastElement.classList.add("hidden");
 
         if (this.difficultyElement) this.difficultyElement.textContent = difficultyName;
         if (this.playerNameElement) this.playerNameElement.textContent = playerName || "Shopkeeper";

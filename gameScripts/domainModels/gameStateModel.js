@@ -8,6 +8,8 @@ class GameState {
         this.initialLives = difficultyConfig.lives || 3;
         this.pointsPerOrder = difficultyConfig.pointsPerOrder || 10;
         this.puzzleBonus = difficultyConfig.puzzleBonus || 15;
+        this.milestoneEvery = difficultyConfig.milestoneEvery || 5;
+        this.milestoneBonus = difficultyConfig.milestoneBonus || 20;
         this.orderSize = difficultyConfig.orderSize || 2;
 
         // Orders completed and orders needed to win
@@ -20,6 +22,7 @@ class GameState {
         this.running = false;
         this.isGameOver = false;
         this.isPuzzleModalOpen = false;
+        this.isBonusModalOpen = false;
 
         this.currentCustomer = null;
     }
@@ -32,6 +35,7 @@ class GameState {
         this.running = true;
         this.isGameOver = false;
         this.isPuzzleModalOpen = false;
+        this.isBonusModalOpen = false;
         this.currentCustomer = null;
         this.ordersCompleted = 0;
 

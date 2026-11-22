@@ -41,8 +41,8 @@ class CustomerOrderManager {
     }
 
     // Award order points, clear the basket, and continue or finish the game
-    fulfillCustomerOrder(gameState, player, bonusPoints = 0) {
-        const totalPoints = gameState.pointsPerOrder + bonusPoints;
+    fulfillCustomerOrder(gameState, player, bonusPoints = 0, milestoneBonus = 0) {
+        const totalPoints = gameState.pointsPerOrder + bonusPoints + milestoneBonus;
 
         gameState.addScore(totalPoints);
 
@@ -54,7 +54,9 @@ class CustomerOrderManager {
         eventBus.emit(GameEvents.CUSTOMER_SERVED, {
             customer: servedCustomer,
             points: totalPoints,
-            bonus: bonusPoints
+            bonus: bonusPoints,
+            milestoneBonus: milestoneBonus,
+            ordersCompleted: gameState.ordersCompleted
         });
 
         if (gameState.ordersCompleted >= gameState.targetOrders) {

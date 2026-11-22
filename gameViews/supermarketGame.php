@@ -41,6 +41,8 @@ $gameConfig = [
     <script src="../gameScripts/networkServices/fishPuzzleApiClient.js" defer></script>
     <script src="../gameScripts/networkServices/puzzleChallengeService.js" defer></script>
     <script src="../gameScripts/networkServices/scoreDataService.js" defer></script>
+    <script src="../gameScripts/networkServices/tomatoPuzzleApiClient.js" defer></script>
+    <script src="../gameScripts/networkServices/bonusPuzzleService.js" defer></script>
 
     <script src="../gameScripts/gameplayLogic/gameplayTimer.js" defer></script>
     <script src="../gameScripts/gameplayLogic/productCollectionManager.js" defer></script>
@@ -203,6 +205,79 @@ $gameConfig = [
                 </div>
 
             </section>
+        </div>
+
+        <div id="bonusToast" class="bonus-toast hidden" role="status"></div>
+
+        <div id="bonusModal" class="checkout-overlay hidden">
+
+            <div class="checkout-card">
+
+                <h3 class="bonus-title">Bonus Challenge!</h3>
+
+                <div class="puzzle-viewport">
+
+                    <div id="bonusLoading" class="puzzle-loading">
+                        <span class="spinner">⏳</span>
+                    </div>
+
+                    <img
+                        id="bonusImage"
+                        class="puzzle-img hidden"
+                        alt="Tomato Game Challenge"
+                    />
+
+                </div>
+
+                <div class="puzzle-controls">
+
+                    <label for="bonusAnswerInput">
+                        Solve the Tomato puzzle to win bonus points:
+                    </label>
+
+                    <div class="puzzle-input-row">
+
+                        <input
+                            type="number"
+                            id="bonusAnswerInput"
+                            min="0"
+                            max="9"
+                            placeholder="0"
+                        />
+
+                        <button
+                            type="button"
+                            id="submitBonusBtn"
+                            class="submit-puzzle-btn"
+                        >
+                            Claim Bonus
+                        </button>
+
+                    </div>
+
+                    <div class="numpad-row">
+
+                        <button type="button" class="bonus-numpad-btn" data-digit="0">0</button>
+                        <button type="button" class="bonus-numpad-btn" data-digit="1">1</button>
+                        <button type="button" class="bonus-numpad-btn" data-digit="2">2</button>
+                        <button type="button" class="bonus-numpad-btn" data-digit="3">3</button>
+                        <button type="button" class="bonus-numpad-btn" data-digit="4">4</button>
+                        <button type="button" class="bonus-numpad-btn" data-digit="5">5</button>
+                        <button type="button" class="bonus-numpad-btn" data-digit="6">6</button>
+                        <button type="button" class="bonus-numpad-btn" data-digit="7">7</button>
+                        <button type="button" class="bonus-numpad-btn" data-digit="8">8</button>
+                        <button type="button" class="bonus-numpad-btn" data-digit="9">9</button>
+
+                    </div>
+
+                    <button type="button" id="skipBonusBtn" class="bonus-skip-btn">
+                        Skip bonus
+                    </button>
+
+                    <p id="bonusFeedback" class="puzzle-feedback"></p>
+
+                </div>
+            </div>
         </div>
 
         <!-- Game over overlay -->

@@ -5,6 +5,8 @@
     "lives": 3,
     "pointsPerOrder": 10,
     "puzzleBonus": 25,
+    "milestoneEvery": 5,
+    "milestoneBonus": 20,
     "orderSize": 3,
     "targetOrders": 10
   },
@@ -14,6 +16,8 @@
     "lives": 3,
     "pointsPerOrder": 15,
     "puzzleBonus": 25,
+    "milestoneEvery": 5,
+    "milestoneBonus": 20,
     "orderSize": 3,
     "targetOrders": 10
   },
@@ -23,6 +27,8 @@
     "lives": 3,
     "pointsPerOrder": 20,
     "puzzleBonus": 25,
+    "milestoneEvery": 5,
+    "milestoneBonus": 20,
     "orderSize": 3,
     "targetOrders": 10
   }

@@ -172,6 +172,7 @@ if ($action === 'save_score' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $maxScore = $level
         ? $level['targetOrders'] * ($level['pointsPerOrder'] + $level['puzzleBonus'])
+            + intdiv($level['targetOrders'], $level['milestoneEvery'] ?? 5) * ($level['milestoneBonus'] ?? 0)
         : 0;
 
     if ($score === false || $score < 0 || $level === null || $score > $maxScore) {

@@ -46,6 +46,8 @@ MiniMart/
 │   │   └── supermarketCanvasRenderer.js
 │   ├── networkServices/
 │   │   ├── fishPuzzleApiClient.js
+│   │   ├── bonusPuzzleService.js
+│   │   ├── tomatoPuzzleApiClient.js
 │   │   ├── puzzleChallengeService.js
 │   │   └── scoreDataService.js
 │   └── userInterface/
