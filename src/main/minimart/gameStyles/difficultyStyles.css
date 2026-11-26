@@ -11,7 +11,7 @@ body {
     align-items: center;
     padding: 20px;
     font-family: Arial, sans-serif;
-    background-image: url("../gameAssets/menuBackground.jpg");
+    background-image: url("../../asset/gameAssets/menuBackground.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -1,4 +1,3 @@
-
 <?php
 // Database configuration 
 
@@ -16,3 +15,4 @@ function load_json(string $name): array
 
     return is_array($data) ? $data : [];
 }
+

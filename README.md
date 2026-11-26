@@ -33,45 +33,22 @@ The game also includes different difficulty levels, a scoring system, a countdow
 ## Project Structure
 
 ```text
-MiniMart/
-│
-├── README.md
-│
-├── gameBackend/
-│   ├── gameApi.php
-│   ├── databaseConfig.php
-│   └── sessionManager.php
-│
-├── gameDatabase/
-│   └── minimartDatabase.sql
-│
-├── gameData/
-│   ├── difficultyLevels.json
-│   └── storeProducts.json
-│
-├── gameAssets/
-│
-├── gameScripts/
-│   ├── domainModels/
-│   ├── eventSystem/
-│   ├── gameplayLogic/
-│   ├── gameRendering/
-│   ├── networkServices/
-│   ├── playerAuthentication/
-│   └── userInterface/
-│
-├── gameStyles/
-│
-└── gameViews/
-    ├── authenticationGuard.php
-    ├── gameInstructions.php
-    ├── index.php
-    ├── mainMenu.php
-    ├── playerLogin.php
-    ├── playerSignup.php
-    ├── scoreLeaderboard.php
-    ├── selectDifficulty.php
-    └── supermarketGame.php
+MiniMart-9/
+├── index.php                              # Root router: auto-redirects to mainMenu or playerLogin
+├── README.md                              # Project documentation
+├── .editorconfig
+├── .prettierrc
+└── src/main/
+    ├── asset/
+    │   └── gameAssets/                    # Graphic illustrations and backgrounds
+    └── minimart/
+        ├── index.php                      # Minimart router
+        ├── gameBackend/                   # REST API, database PDO config, and session manager
+        ├── gameDatabase/                  # MySQL schema (minimartDatabase.sql)
+        ├── gameData/                      # Levels and products JSON catalogs
+        ├── gameScripts/                   # Modular client-side JavaScript architecture
+        ├── gameStyles/                    # CSS stylesheets
+        └── gameViews/                     # PHP web views
 ```
 
 ## How to Play
@@ -108,6 +85,18 @@ The database includes:
 - Game scores.
 - Difficulty levels.
 - Score records.
+
+## How to Run the Application
+
+1. Extract or place the project folder into your web server directory (e.g. `C:/wamp64/www/MiniMart-9/` or `C:/xampp/htdocs/MiniMart-9/`).
+2. Start Apache and MySQL services in WAMP/XAMPP.
+3. Import the database schema from `src/main/minimart/gameDatabase/minimartDatabase.sql` into MySQL (via phpMyAdmin or MySQL CLI).
+4. Verify database credentials in `src/main/minimart/gameBackend/databaseConfig.php` (default: host `localhost`, db `minimart_db`, user `root`, no password).
+5. Open your browser and navigate to:
+   ```text
+   http://localhost/MiniMart-9/
+   ```
+
 
 
 

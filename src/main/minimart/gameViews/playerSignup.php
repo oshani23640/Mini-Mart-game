@@ -16,7 +16,7 @@ if (!empty($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Mart - Login</title>
+    <title>Mini Mart - Sign Up</title>
 
     <link rel="stylesheet" href="../gameStyles/globalStyles.css">
     <link rel="stylesheet" href="../gameStyles/authenticationStyles.css">
@@ -29,16 +29,16 @@ if (!empty($_SESSION['user_id'])) {
         <div class="auth-container">
 
             <img
-                src="../gameAssets/authHeroBanner.jpg"
+                src="../../asset/gameAssets/authHeroBanner.jpg"
                 alt="Mini Mart Shop"
                 class="auth-background-image">
 
             <div class="auth-box">
 
                 <h1>Mini Mart</h1>
-                <h2>Login</h2>
+                <h2>Create Account</h2>
 
-                <form id="loginForm">
+                <form id="signupForm">
 
                     <label for="username">Username</label>
 
@@ -56,20 +56,28 @@ if (!empty($_SESSION['user_id'])) {
                         placeholder="Enter password"
                         required>
 
-                    <button type="submit">Login</button>                  
+                    <label for="confirmPassword">Confirm Password</label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm password"
+                        required>
+
+                    <button type="submit">Sign Up</button>
 
                 </form>
 
                 <p>
-                    Don't have an account?
-                    <a href="playerSignup.php">Sign Up</a>
+                    Already have an account?
+                    <a href="playerLogin.php">Login</a>
                 </p>
 
             </div>
         </div>
     </div>
 
-    <script src="../gameScripts/playerAuthentication/playerLogin.js"></script>
+    <script src="../gameScripts/playerAuthentication/playerSignup.js"></script>
 
 </body>
 </html>
