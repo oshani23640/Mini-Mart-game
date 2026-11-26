@@ -33,25 +33,75 @@ The game also includes different difficulty levels, a scoring system, a countdow
 ## Project Structure
 
 ```text
-src/main/
-├── asset/
-│   └── gameAssets/
-└── minimart/
-    ├── gameBackend/
-    ├── gameDatabase/
-    ├── gameData/
-    ├── gameScripts/
-    ├── gameStyles/
-    └── gameViews/
-        ├── authenticationGuard.php
-        ├── gameInstructions.php
-        ├── index.php                      # Entry point router (redirects to mainMenu or playerLogin)
-        ├── mainMenu.php
-        ├── playerLogin.php
-        ├── playerSignup.php
-        ├── scoreLeaderboard.php
-        ├── selectDifficulty.php
-        └── supermarketGame.php
+MiniMart/
+├── README.md
+├── .editorconfig
+├── .prettierrc
+└── src/
+    └── main/
+        ├── asset/
+        │   └── gameAssets/
+        │       ├── authHeroBanner.jpg
+        │       ├── gameplayBackground.jpg
+        │       └── menuBackground.jpg
+        └── minimart/
+            ├── gameBackend/
+            │   ├── databaseConfig.php
+            │   ├── gameApi.php
+            │   └── sessionManager.php
+            ├── gameDatabase/
+            │   └── minimartDatabase.sql
+            ├── gameData/
+            │   ├── difficultyLevels.json
+            │   └── storeProducts.json
+            ├── gameScripts/
+            │   ├── domainModels/
+            │   │   ├── customerModel.js
+            │   │   ├── gameStateModel.js
+            │   │   ├── playerModel.js
+            │   │   └── productModel.js
+            │   ├── eventSystem/
+            │   │   └── gameEventBus.js
+            │   ├── gameRendering/
+            │   │   └── supermarketCanvasRenderer.js
+            │   ├── gameplayLogic/
+            │   │   ├── customerOrderManager.js
+            │   │   ├── gameplayCoordinator.js
+            │   │   ├── gameplayTimer.js
+            │   │   ├── playerInputHandler.js
+            │   │   └── productCollectionManager.js
+            │   ├── networkServices/
+            │   │   ├── bonusPuzzleService.js
+            │   │   ├── fishPuzzleApiClient.js
+            │   │   ├── puzzleChallengeService.js
+            │   │   ├── scoreDataService.js
+            │   │   └── tomatoPuzzleApiClient.js
+            │   ├── playerAuthentication/
+            │   │   ├── playerLogin.js
+            │   │   └── playerSignup.js
+            │   └── userInterface/
+            │       ├── difficultySelectionController.js
+            │       ├── gameplayUiController.js
+            │       ├── mainMenuController.js
+            │       └── scoreLeaderboardController.js
+            ├── gameStyles/
+            │   ├── authenticationStyles.css
+            │   ├── difficultyStyles.css
+            │   ├── gameplayStyles.css
+            │   ├── globalStyles.css
+            │   ├── instructionsStyles.css
+            │   ├── menuStyles.css
+            │   └── scoreStyles.css
+            └── gameViews/
+                ├── authenticationGuard.php
+                ├── gameInstructions.php
+                ├── index.php
+                ├── mainMenu.php
+                ├── playerLogin.php
+                ├── playerSignup.php
+                ├── scoreLeaderboard.php
+                ├── selectDifficulty.php
+                └── supermarketGame.php
 ```
 
 ## How to Play
@@ -89,16 +139,6 @@ The database includes:
 - Difficulty levels.
 - Score records.
 
-## How to Run the Application
-
-1. Extract or place the project folder into your web server directory (e.g. `C:/wamp64/www/MiniMart-9/` or `C:/xampp/htdocs/MiniMart-9/`).
-2. Start Apache and MySQL services in WAMP/XAMPP.
-3. Import the database schema from `src/main/minimart/gameDatabase/minimartDatabase.sql` into MySQL (via phpMyAdmin or MySQL CLI).
-4. Verify database credentials in `src/main/minimart/gameBackend/databaseConfig.php` (default: host `localhost`, db `minimart_db`, user `root`, no password).
-5. Open your browser and navigate to:
-   ```text
-   http://localhost/MiniMart-9/src/main/minimart/gameViews/
-   ```
 
 
 
