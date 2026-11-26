@@ -35,7 +35,6 @@ The game also includes different difficulty levels, a scoring system, a countdow
 ```text
 MiniMart/
 │
-├── index.php
 ├── README.md
 │
 ├── gameBackend/
