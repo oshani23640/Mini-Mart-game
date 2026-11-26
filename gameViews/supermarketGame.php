@@ -152,7 +152,6 @@ $gameConfig = [
 
                         <div>
                             <h3 id="customerName">Customer</h3>
-                            <p id="customerMessage">Please collect my items!</p>
                         </div>
 
                     </div>
