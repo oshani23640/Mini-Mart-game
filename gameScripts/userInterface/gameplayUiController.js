@@ -14,7 +14,6 @@ class GameplayUiController {
 
         this.customerAvatarElement = document.getElementById("customerAvatar");
         this.customerNameElement = document.getElementById("customerName");
-        this.customerMessageElement = document.getElementById("customerMessage");
         this.orderListElement = document.getElementById("orderList");
         this.basketCountElement = document.getElementById("basketCount");
         this.customerCountElement = document.getElementById("customerCount");
