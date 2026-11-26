@@ -33,22 +33,25 @@ The game also includes different difficulty levels, a scoring system, a countdow
 ## Project Structure
 
 ```text
-MiniMart-9/
-├── index.php                              # Root router: auto-redirects to mainMenu or playerLogin
-├── README.md                              # Project documentation
-├── .editorconfig
-├── .prettierrc
-└── src/main/
-    ├── asset/
-    │   └── gameAssets/                    # Graphic illustrations and backgrounds
-    └── minimart/
-        ├── index.php                      # Minimart router
-        ├── gameBackend/                   # REST API, database PDO config, and session manager
-        ├── gameDatabase/                  # MySQL schema (minimartDatabase.sql)
-        ├── gameData/                      # Levels and products JSON catalogs
-        ├── gameScripts/                   # Modular client-side JavaScript architecture
-        ├── gameStyles/                    # CSS stylesheets
-        └── gameViews/                     # PHP web views
+src/main/
+├── asset/
+│   └── gameAssets/
+└── minimart/
+    ├── gameBackend/
+    ├── gameDatabase/
+    ├── gameData/
+    ├── gameScripts/
+    ├── gameStyles/
+    └── gameViews/
+        ├── authenticationGuard.php
+        ├── gameInstructions.php
+        ├── index.php                      # Entry point router (redirects to mainMenu or playerLogin)
+        ├── mainMenu.php
+        ├── playerLogin.php
+        ├── playerSignup.php
+        ├── scoreLeaderboard.php
+        ├── selectDifficulty.php
+        └── supermarketGame.php
 ```
 
 ## How to Play
@@ -94,7 +97,7 @@ The database includes:
 4. Verify database credentials in `src/main/minimart/gameBackend/databaseConfig.php` (default: host `localhost`, db `minimart_db`, user `root`, no password).
 5. Open your browser and navigate to:
    ```text
-   http://localhost/MiniMart-9/
+   http://localhost/MiniMart-9/src/main/minimart/gameViews/
    ```
 
 
