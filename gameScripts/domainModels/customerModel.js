@@ -21,7 +21,6 @@ class Customer {
     constructor(name, avatar, message) {
         this.name = name;
         this.avatar = avatar;
-        this.message = message;
 
         // Items requested by this customer
         this.order = [];

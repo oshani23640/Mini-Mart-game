@@ -71,7 +71,6 @@ class GameplayUiController {
         eventBus.on(GameEvents.CUSTOMER_ARRIVED, (customer) => {
             if (this.customerAvatarElement) this.customerAvatarElement.textContent = customer.avatar;
             if (this.customerNameElement) this.customerNameElement.textContent = customer.name;
-            if (this.customerMessageElement) this.customerMessageElement.textContent = customer.message;
 
             this.renderOrder(customer, catalog);
         });

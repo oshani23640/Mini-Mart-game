@@ -29,7 +29,7 @@ class CustomerOrderManager {
 
         const template = CustomerOrderManager.CUSTOMER_TEMPLATES[index];
 
-        const customer = new Customer(template.name, template.avatar, template.message);
+        const customer = new Customer(template.name, template.avatar);
         customer.generateOrder(productCatalog.items, gameState.orderSize);
 
         gameState.currentCustomer = customer;
